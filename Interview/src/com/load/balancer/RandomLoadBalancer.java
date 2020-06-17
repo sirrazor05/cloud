@@ -42,7 +42,7 @@ public class RandomLoadBalancer extends AbstractLoadBalancer {
 		final LoadBalancer loadBalancer = new RandomLoadBalancer(List.of(p1, p2, p3, p4, p5, p6, p7, p8),
 				executorService);
 
-		for (int i = 0; i < 25000; i++) {
+		for (int i = 0; i < 2500; i++) {
 			Thread.sleep(1000);
 			System.out.println(loadBalancer.get());
 			System.out.println(loadBalancer.get());
