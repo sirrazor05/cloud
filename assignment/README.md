@@ -10,7 +10,7 @@ Or
 ./gradlew bootWar
 java -jar build/libs/assignment-0.0.1-SNAPSHOT.war
 ```
-Got to http://localhost:8080/
+Go to http://localhost:8080/
 
 A page with a map is displayed.
 To predict price at location just click on the map
