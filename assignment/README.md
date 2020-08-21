@@ -1,7 +1,6 @@
 How to run:
 
 ```
-Go to the root folder and run
 ./gradlew bootRun
 ```
 
