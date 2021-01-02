@@ -1,4 +1,4 @@
-package com.noboko.assignment.controllers;
+package com.noboko.controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

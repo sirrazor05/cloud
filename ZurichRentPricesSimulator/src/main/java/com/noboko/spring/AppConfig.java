@@ -1,14 +1,14 @@
-package com.noboko.assignment.spring;
+package com.noboko.spring;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
-import com.noboko.assignment.services.CsvPointsLoaderService;
-import com.noboko.assignment.services.PointsLoadedService;
-import com.noboko.assignment.services.PricePredictionService;
-import com.noboko.assignment.services.SimplePricePredictionService;
+import com.noboko.services.CsvPointsLoaderService;
+import com.noboko.services.PointsLoadedService;
+import com.noboko.services.PricePredictionService;
+import com.noboko.services.SimplePricePredictionService;
 
 @Configuration
 public class AppConfig {

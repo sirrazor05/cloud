@@ -1,8 +1,8 @@
-package com.noboko.assignment.services;
+package com.noboko.services;
 
 import java.util.List;
 
-import com.noboko.assignment.model.EntryPoint;
+import com.noboko.model.EntryPoint;
 
 public interface PointsLoadedService {
 

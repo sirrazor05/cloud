@@ -1,10 +1,10 @@
-package com.noboko.assignment;
+package com.noboko;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-import com.noboko.assignment.spring.AppConfig;
+import com.noboko.spring.AppConfig;
 
 @Import(AppConfig.class)
 @SpringBootApplication

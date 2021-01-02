@@ -1,4 +1,4 @@
-package com.noboko.assignment.services;
+package com.noboko.services;
 
 public interface PricePredictionService {
 

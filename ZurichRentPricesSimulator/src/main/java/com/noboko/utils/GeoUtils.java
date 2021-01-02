@@ -1,4 +1,4 @@
-package com.noboko.assignment.utils;
+package com.noboko.utils;
 
 public class GeoUtils {
 

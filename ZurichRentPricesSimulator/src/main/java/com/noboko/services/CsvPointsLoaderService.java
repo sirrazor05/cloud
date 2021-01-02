@@ -1,4 +1,4 @@
-package com.noboko.assignment.services;
+package com.noboko.services;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.core.io.Resource;
 
-import com.noboko.assignment.model.EntryPoint;
+import com.noboko.model.EntryPoint;
 
 public class CsvPointsLoaderService implements PointsLoadedService {
 

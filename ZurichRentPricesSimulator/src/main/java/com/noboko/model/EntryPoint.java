@@ -1,4 +1,4 @@
-package com.noboko.assignment.model;
+package com.noboko.model;
 
 public class EntryPoint {
 	private final double lat;

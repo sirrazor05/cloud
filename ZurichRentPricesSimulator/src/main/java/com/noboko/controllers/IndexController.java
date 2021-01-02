@@ -1,4 +1,4 @@
-package com.noboko.assignment.controllers;
+package com.noboko.controllers;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.noboko.assignment.services.PricePredictionService;
+import com.noboko.services.PricePredictionService;
 
 @Controller
 public class IndexController {
