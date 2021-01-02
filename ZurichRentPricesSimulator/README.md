@@ -7,7 +7,7 @@ How to run:
 Or 
 ```
 ./gradlew bootWar
-java -jar build/libs/assignment-0.0.1-SNAPSHOT.war
+java -jar build/libs/ZurichRentPricesSimulator-0.0.1-SNAPSHOT.war
 ```
 Go to http://localhost:8080/
 
