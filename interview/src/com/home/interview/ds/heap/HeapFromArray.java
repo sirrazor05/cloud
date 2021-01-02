@@ -22,13 +22,17 @@ public class HeapFromArray {
 		}
 		// If largest is not root
 		if (largest != i) {
-			int swap = arr[i];
-			arr[i] = arr[largest];
-			arr[largest] = swap;
+			swap(arr, i, largest);
 
 			// Recursively heapify the affected sub-tree
 			heapify(arr, n, largest);
 		}
+	}
+
+	public static void swap(int[] arr, int i, int j) {
+		int swap = arr[i];
+		arr[i] = arr[j];
+		arr[j] = swap;
 	}
 
 	public static void buildHeap(int arr[], int n) {
