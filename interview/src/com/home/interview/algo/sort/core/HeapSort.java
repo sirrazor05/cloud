@@ -12,8 +12,7 @@ public class HeapSort {
 		int n = arr.length;
 
 		// Build heap (rearrange array)
-		for (int i = n / 2 - 1; i >= 0; i--)
-			HeapFromArray.heapify(arr, n, i);
+		HeapFromArray.buildHeap(arr, n);
 
 		// One by one extract an element from heap
 		for (int i = n - 1; i > 0; i--) {
