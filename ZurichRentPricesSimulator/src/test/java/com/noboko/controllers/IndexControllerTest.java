@@ -8,33 +8,33 @@ public class IndexControllerTest {
 
 	@Test
 	public void test() {
-		assertTrue(true);
+		assertTrue(false);
 
 	}
 
 	@Test
 	public void test1() {
-		assertTrue(true);
+		assertTrue(false);
 	}
 
 	@Test
 	public void test2() {
-		assertTrue(true);
+		assertTrue(false);
 	}
 
 	@Test
 	public void test3() {
-		assertTrue(true);
+		assertTrue(false);
 	}
 
 	@Test
 	public void test4() {
-		assertTrue(true);
+		assertTrue(false);
 	}
 
 	@Test
 	public void test5() {
-		assertTrue(true);
+		assertTrue(false);
 	}
 
 }
