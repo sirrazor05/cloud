@@ -227,6 +227,10 @@ thread to release all the worker threads at once, and the ending gate allows the
 master thread to wait for the last thread to finish rather than waiting sequentially
 for each thread to finish.
 
+Think of it like a group of workers waiting for certain tasks to be completed before
+starting their next phase of work. They wait until all tasks are finished before
+moving forward.
+
 ## 5. Barriers <a name="barriers"></a>
 
 We have seen how latches can facilitate starting a group of related activities or
@@ -263,6 +267,10 @@ each step calculates an update to the position of each particle based on the loc
 and other attributes of the other particles. Waiting on a barrier between
 each update ensures that all updates for step k have completed before moving on
 to step k + 1.
+
+Think of it like a group of friends agreeing to meet at a designated spot before
+heading to an event together. They all wait at the meeting spot, and once
+everyone is present, they move forward together.
 
 ## 6. Semaphores <a name="semaphores"></a>
 
