@@ -3,7 +3,8 @@
 1. [What is an OOP language?](#oop)
 2. [What are the SOLID principles?](#solid)
 3. [What is the final keyword doing?](#final)
-4. [Latches?](#latches)
+4. [Latches](#latches)
+5. [Semaphores](#semaphores)
 
 ## 1. What is an OOP language? <a name="oop"></a>?
 
@@ -204,7 +205,6 @@ public class TestHarness {
         return end-start;
     }
 }
-
 ```
 TestHarness  illustrates two common uses for latches. Test-
 Harness creates a number of threads that run a given task concurrently. It uses
@@ -225,3 +225,66 @@ of active threads increased or decreased. Using a starting gate allows the maste
 thread to release all the worker threads at once, and the ending gate allows the
 master thread to wait for the last thread to finish rather than waiting sequentially
 for each thread to finish.
+
+## 5. Semaphores <a name="semaphores"></a>
+
+`Counting semaphores` are used to control the number of activities that can access a
+certain resource or perform a given action at the same time [CPJ 3.4.1]. Counting
+semaphores can be used to implement resource pools or to impose a bound on a
+collection.
+
+A `Semaphore` manages a set of virtual permits; the initial number of permits is
+passed to the Semaphore constructor. Activities can acquire permits (as long as
+some remain) and release permits when they are done with them. If no permit is
+available, acquire blocks until one is (or until interrupted or the operation times
+out). The release method returns a permit to the semaphore.4 A degenerate case of
+a counting semaphore is a binary semaphore, a Semaphore with an initial count
+of one. A binary semaphore can be used as a mutex with nonreentrant locking
+semantics; whoever holds the sole permit holds the mutex.
+
+Semaphores are useful for implementing resource pools such as database connection
+pools. While it is easy to construct a fixed-sized pool that fails if you
+request a resource from an empty pool, what you really want is to block if the
+pool is empty and unblock when it becomes nonempty again. If you initialize
+a Semaphore to the pool size, acquire a permit before trying to fetch a resource
+from the pool, and release the permit after putting a resource back in the pool,
+acquire blocks until the pool becomes nonempty. This technique is used in the
+bounded buffer class in Chapter 12. (An easier way to construct a blocking object
+pool would be to use a BlockingQueue to hold the pooled resources.)
+
+```java
+public class BoundedHashSet<T> {
+    private final Set<T> set;
+    private final Semaphore sem;
+    public BoundedHashSet(int bound) {
+        this.set = Collections.synchronizedSet(new HashSet<T>());
+        sem = new Semaphore(bound);
+    }
+    public boolean add(T o) throws InterruptedException {
+        sem.acquire();
+        boolean wasAdded = false;
+        try {
+            wasAdded = set.add(o);
+            return wasAdded;
+        }
+        finally {
+            if (!wasAdded)
+                sem.release();
+        }
+    }
+    public boolean remove(Object o) {
+        boolean wasRemoved = set.remove(o);
+        if (wasRemoved)
+            sem.release();
+        return wasRemoved;
+    }
+}
+```
+Similarly, you can use a Semaphore to turn any collection into a blocking
+bounded collection, as illustrated by BoundedHashSet in Listing 5.14. The
+semaphore is initialized to the desired maximum size of the collection. The add
+operation acquires a permit before adding the item into the underlying collection.
+If the underlying add operation does not actually add anything, it releases
+the permit immediately. Similarly, a successful remove operation releases a permit,
+enabling more elements to be added. The underlying Set implementation
+knows nothing about the bound; this is handled by BoundedHashSet.
