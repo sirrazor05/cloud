@@ -7,6 +7,7 @@
 5. [Barriers](#barriers)
 6. [Semaphores](#semaphores)
 7. [Java equals() and hashCode() Contracts](#equals_hashcode)
+8. [Volatile](#volatile)
 
 ## 1. What is an OOP language? <a name="oop"></a>?
 
@@ -352,3 +353,78 @@ All three criteria in the .hashCode() contract mention the .equals() method in s
 - `equals consistency:` objects that are equal to each other must return the same hashCode 
 - `collisions:` unequal objects may have the same hashCode
 
+## 8. Volatile <a name="volatile"></a>
+
+In Java, the `volatile` keyword is used to indicate that a variable's value may be modified by multiple threads that are executing concurrently.
+When a variable is declared as `volatile`, it ensures that all reads and writes to that variable are done directly to and from the main memory, 
+rather than caching its value in each thread's stack.
+
+Here are some key points about `volatile`:
+
+### Visibility:
+
+The volatile keyword guarantees visibility of changes made to the variable across threads. 
+When a thread modifies a volatile variable, the new value is immediately visible to all other threads accessing the variable.
+
+### Atomicity: 
+
+Unlike synchronization mechanisms like locks or synchronized blocks, volatile variables do not provide atomicity for compound operations.
+If multiple operations need to be performed atomically, additional synchronization mechanisms are required.
+
+### Use Cases:
+
+`volatile` is commonly used for flags or state variables that are accessed by multiple threads but do not require atomicity.
+Examples include flags to control thread termination or to signal state changes.
+
+### Memory Barrier:
+
+When a variable is declared as volatile, it imposes a memory barrier, which ensures that the read and write operations on the variable
+are not reordered with other memory operations. This prevents potential inconsistencies due to instruction reordering by the compiler or CPU.
+
+### Performance Impact:
+
+While volatile ensures visibility and memory consistency, excessive use of volatile variables can impact performance due to the overhead of memory barriers.
+Therefore, it's important to use volatile judiciously and only when necessary.
+
+Memory barrier example:
+
+```java
+public class VolatileReorderingExample {
+    private volatile int x = 0;
+    private int y = 0;
+
+    public void write() {
+        x = 1;  // Write to volatile variable
+        y = 1;  // Write to non-volatile variable
+    }
+
+    public void read() {
+        int a = x;  // Read volatile variable
+        int b = y;  // Read non-volatile variable
+        System.out.println("a=" + a + ", b=" + b);
+    }
+
+    public static void main(String[] args) {
+        VolatileReorderingExample example = new VolatileReorderingExample();
+
+        // Thread 1: Writes to variables
+        Thread thread1 = new Thread(() -> {
+            example.write();
+        });
+
+        // Thread 2: Reads variables
+        Thread thread2 = new Thread(() -> {
+            example.read();
+        });
+
+        thread1.start();
+        thread2.start();
+    }
+}
+```
+
+In this example, x is declared as volatile, while y is a non-volatile variable. The write() method writes to both x and y, while the read() method reads both variables.
+
+Without the memory barrier imposed by volatile, the JVM might potentially reorder the write operations in the write() method, leading to a situation where y is written before x. This reordering could result in thread2 reading the value of y before reading the value of x, which would violate the intended ordering of the operations.
+
+However, because x is declared as volatile, the memory barrier prevents such reordering, ensuring that the write to x completes before the write to y. As a result, thread2 is guaranteed to observe the updated value of x before reading the value of y, as expected.
