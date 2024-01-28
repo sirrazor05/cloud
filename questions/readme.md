@@ -6,6 +6,7 @@
 4. [Latches](#latches)
 5. [Barriers](#barriers)
 6. [Semaphores](#semaphores)
+7. [Java equals() and hashCode() Contracts](#equals_hashcode)
 
 ## 1. What is an OOP language? <a name="oop"></a>?
 
@@ -334,3 +335,20 @@ If the underlying add operation does not actually add anything, it releases
 the permit immediately. Similarly, a successful remove operation releases a permit,
 enabling more elements to be added. The underlying Set implementation
 knows nothing about the bound; this is handled by BoundedHashSet.
+
+## 7. Java equals() and hashCode() Contracts <a name="equals_hashcode"></a>
+
+### The .equals() Contract
+
+- `reflexive:` an object must equal itself
+- `symmetric:` x.equals(y) must return the same result as y.equals(x)
+- `transitive:` if x.equals(y) and y.equals(z), then also x.equals(z)
+- `consistent:` the value of .equals() should change only if a property that is contained in .equals() changes (no randomness allowed)
+
+### The .hashCode() Contract
+
+All three criteria in the .hashCode() contract mention the .equals() method in some way:
+- `internal consistency:` the value of hashCode() may only change if a property that is in equals() changes 
+- `equals consistency:` objects that are equal to each other must return the same hashCode 
+- `collisions:` unequal objects may have the same hashCode
+
