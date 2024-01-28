@@ -2,7 +2,7 @@
 
 1. [What is an OOP language?](#oop)
 2. [What are the SOLID principles?](#solid)
-
+3. [What is the final keyword doing?](#final)
 
 ## 1. What is an OOP language? <a name="oop"></a>?
 
@@ -113,3 +113,32 @@ The SOLID acronym stands for:
    - This principle promotes loose coupling between modules by introducing
    abstractions/interfaces that decouple high-level and low-level components,
    making the system more flexible, extensible, and easier to maintain.
+
+## 3. What is the final keyword doing? <a name="final"></a>
+
+Final keyword in java can be applied on variables, methods or classes.
+
+### Final Variables:
+
+- When applied to a variable, the final keyword indicates that the variable's value
+cannot be modified once it has been assigned a value.
+- For primitive data types, the value of a final variable cannot change once it's assigned.
+- For reference data types (objects), the reference stored in the variable cannot change
+after initialization. However, the state of the object itself may still be modified (unless the
+object is immutable).
+
+### Final Methods:
+
+- When applied to a method, the final keyword indicates that the method cannot be
+overridden by subclasses. This means that the implementation of the method in the
+superclass is final and cannot be changed by subclasses.
+- Declaring a method as final prevents subclasses from providing a different
+implementation for that method.
+
+### Final Classes:
+
+- When applied to a class, the final keyword indicates that the class cannot be
+subclassed (i.e., no other class can extend it). It effectively prevents inheritance for that
+class.
+- Final classes are often used when the design of a class is complete, and it's not
+intended to be subclassed or extended.
