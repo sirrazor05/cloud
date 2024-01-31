@@ -8,6 +8,10 @@
 6. [Semaphores](#semaphores)
 7. [Java equals() and hashCode() Contracts](#equals_hashcode)
 8. [Volatile](#volatile)
+9. [week, soft hard reference in java](#ref)
+10. [acid vs base transactions](#acidvsbase)
+11. [garbage collector how it works, what type is used now in latest java?](#gc)
+12. [mongodb partitioning](#mongopart)
 
 ## 1. What is an OOP language? <a name="oop"></a>?
 
