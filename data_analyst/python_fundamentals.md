@@ -238,7 +238,7 @@ common_tags = user_1_tags & user_2_tags  # Intersection
 print(common_tags)  # Output: {'python', 'data'}
 ```
 #### 3. Efficient lookups
-Checking if an element is contained in a set is fast (constant time) because sets use hash-based implementation.
+Checking if an element is contained in a set is fast (constant time - O(1)) because sets use hash-based implementation.
 
 ```python
 user_ids = {101, 102, 103, 104}
@@ -266,7 +266,7 @@ Dictionaries are extremely useful for representing and working with data where e
 - **Unordered:** Dictionaries are unordered collections This means that the order in which elements are inserted is not guaranteed to be preserved when accessing or iterating over them.
 - **Mutable:** Dictionaries are mutable, meaning you can add, remove, or modify elements in them after they are created.
 - **Keys must be immutable:** The keys in a dictionary must be immutable types such as strings, numbers, or tuples, while values can be of any type (even other dictionaries).
-- **Efficient lookups:** Dictionaries provide fast access (constant time) to values using keys due to hashing. 
+- **Efficient lookups:** Dictionaries provide fast access (constant time - O(1)) to values using keys due to hashing. 
 ### Syntax
 ```python
 # Creating a dictionary
@@ -342,7 +342,7 @@ student_scores = {
 }
 ```
 #### 2. Fast Lookups
-Dictionaries allow for fast lookups by key, making them ideal for situations where you need quick access to values.
+Dictionaries allow for fast lookups by key (constant time O(1)), making them ideal for situations where you need quick access to values.
 #### 3. Mapping Relationships
 Dictionaries are perfect for mapping relationships, such as mapping user IDs to user information.
 
