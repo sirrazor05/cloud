@@ -1,9 +1,9 @@
 # Table of Contents
 
-1. [Lists in Python](#lists)
-2. [Tuples in Python](#tuples)
-3. [Sets in Python](#sets)
-4. [Dictionary ({key: value}) in Python](#maps)
+1. [Lists](#lists)
+2. [Tuples](#tuples)
+3. [Sets](#sets)
+4. [Dictionary](#maps)
 5. [DefaultDict](#defaultdict)
 6. [OrderedDict](#drdereddict)
 7. [Heap](#heap)
@@ -14,7 +14,7 @@
 12. [NamedTuple](#namedtuple)
 13. [FrozenSet](#frozenset)
 
-# 1. Lists in Python <a name="lists"></a>
+# 1. Lists <a name="lists"></a>
 
 ### Definition
 
@@ -87,7 +87,7 @@ which makes them useful for applications that need to perform these operations f
 Since lists are ordered, you can access any item using its index,
 which is helpful when you need to work with specific positions in the data.
 
-# 2. Tuple in Python <a name="tuples"></a>
+# 2. Tuple <a name="tuples"></a>
 
 ### Definition
 A tuple is an immutable, ordered collection of elements in Python.
@@ -158,7 +158,7 @@ Lists cannot be used as dictionary keys, but tuples can.
 
 **Example:** Using a tuple of coordinates as a dictionary key.
 
-# 3. Sets in Python <a name="sets"></a>
+# 3. Sets <a name="sets"></a>
 A set is an unordered collection of unique elements. 
 Unlike lists and tuples, sets do not maintain the order of the elements, and they automatically remove duplicates.
 
@@ -248,7 +248,7 @@ print(unique_numbers)  # Output: {1, 2, 3, 4, 5}
 
 **Example:** Using a tuple of coordinates as a dictionary key.
 
-# 4. Dictionary ({key: value}) in Python <a name="maps"></a>
+# 4. Dictionary <a name="maps"></a>
 A dictionary in Python is an unordered collection of key-value pairs.
 Each key in a dictionary is unique, and it is associated with a specific value.
 Dictionaries are extremely useful for representing and working with data where each element is identified by a unique key.
