@@ -79,6 +79,13 @@ which makes them useful for applications that need to perform these operations f
 Since lists are ordered, you can access any item using its index,
 which is helpful when you need to work with specific positions in the data.
 
+# 3. Tuple in Python
+
+### Definition
+A tuple is an immutable, ordered collection of elements in Python.
+Once a tuple is created, it cannot be modified (i.e., no adding, removing, or changing elements).
+Tuples can store multiple items of different types and allow duplicates.
+
 # 3. How does Python handle memory management and garbage collection?
 # 4. What is the difference between deep copy and shallow copy?
 # 5. How do you handle exceptions in Python?
