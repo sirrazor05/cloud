@@ -220,5 +220,29 @@ print(difference_set)  # Output: {1, 2}
 symmetric_diff_set = set_a ^ set_b  # Or use set_a.symmetric_difference(set_b)
 print(symmetric_diff_set)  # Output: {1, 2, 4, 5}
 ```
+### Use Cases for Sets
+#### 1. Storing Unique Data
+Since sets automatically remove duplicates, they are great for storing unique data, such as unique IDs or names.
+#### 2. Mathematical Set Operations
+Sets are perfect when you need to perform set operations like union, intersection, and difference (e.g., finding common elements between two sets).
+#### 3. Efficient Membership Testing
+Checking if an element is contained in a set is fast (constant time) because sets use hash-based implementation.
+
+```python
+user_ids = {101, 102, 103, 104}
+print(103 in user_ids)  # Output: True
+print(105 in user_ids)  # Output: False
+```
+#### 4. Removing Duplicates from a List
+You can use a set to automatically remove duplicate items from a list.
+
+```python
+numbers = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = set(numbers)
+print(unique_numbers)  # Output: {1, 2, 3, 4, 5}
+```
+
+**Example:** Using a tuple of coordinates as a dictionary key.
+
 # 5. Dictionary ({key: value}) in Python <a name="maps"></a>
 # 6. Deque in Python <a name="deque"></a>
