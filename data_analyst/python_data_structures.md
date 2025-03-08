@@ -4,7 +4,15 @@
 2. [Tuples in Python](#tuples)
 3. [Sets in Python](#sets)
 4. [Dictionary ({key: value}) in Python](#maps)
-5. [Deque in Python](#deque)
+5. [DefaultDict](#DefaultDict)
+6. [OrderedDict](#OrderedDict)
+7. [Heap](#heap)
+8. [Queue](#queue)
+9. [Deque](#Deque)
+10. [Stack](#Stack)
+11. [Counter](#Counter)
+12. [NamedTuple](#NamedTuple)
+13. [FrozenSet](#FrozenSet)
 
 # 1. Lists in Python <a name="lists"></a>
 
@@ -340,4 +348,12 @@ user_profiles = {
 #### 4. JSON-like Data Structures
 Dictionaries are often used to work with JSON (JavaScript Object Notation) data, as JSON is essentially a collection of key-value pairs.
 
-# 5. Deque in Python <a name="deque"></a>
+# 5. DefaultDict - Dictionary with a default value for missing keys <a name="DefaultDict"></a>
+# 6. OrderedDict - Dictionary that maintains insertion order <a name="OrderedDict"></a>
+# 7. Heap <a name="heap"></a>
+# 8. Queue <a name="queue"></a>
+# 9. Deque <a name="Deque"></a>
+# 10. Stack <a name="Stack"></a>
+# 11. Counter  <a name="Counter"></a>
+# 12. NamedTuple <a name="NamedTuple"></a>
+# 13. FrozenSet <a name="FrozenSet "></a>
