@@ -4,15 +4,15 @@
 2. [Tuples](#tuples)
 3. [Sets](#sets)
 4. [Dictionary](#maps)
-5. [DefaultDict](#defaultdict)
-6. [OrderedDict](#drdereddict)
+5. [Default Dictionary](#defaultdict)
+6. [Ordered Dictionary](#drdereddict)
 7. [Heap](#heap)
 8. [Queue](#queue)
 9. [Deque](#deque)
 10. [Stack](#stack)
 11. [Counter](#counter)
-12. [NamedTuple](#namedtuple)
-13. [FrozenSet](#frozenset)
+12. [Named Tuple](#namedtuple)
+13. [Frozen Set](#frozenset)
 
 # 1. Lists <a name="lists"></a>
 
