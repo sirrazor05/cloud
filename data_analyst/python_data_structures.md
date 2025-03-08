@@ -5,7 +5,7 @@
 3. [Sets](#sets)
 4. [Dictionary](#maps)
 5. [Default Dictionary](#defaultdict)
-6. [Ordered Dictionary](#drdereddict)
+6. [Ordered Dictionary](#ordereddict)
 7. [Heap](#heap)
 8. [Queue](#queue)
 9. [Deque](#deque)
