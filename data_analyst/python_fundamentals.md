@@ -111,7 +111,7 @@ Tuples can store multiple items of different types and allow duplicates.
 ```python
 my_tuple = (1, 2, 3, 4, 5)
 ```
-### Basic List Operations
+### Basic Operations
 ```python
 # Create a tuple
 my_tuple = (10, 20, 30, 40, 50)
@@ -167,5 +167,58 @@ Lists cannot be used as dictionary keys, but tuples can.
 **Example:** Using a tuple of coordinates as a dictionary key.
 
 # 4. Sets in Python <a name="sets"></a>
+A set is an unordered collection of unique elements. 
+Unlike lists and tuples, sets do not maintain the order of the elements, and they automatically remove duplicates.
+
+### Key properties
+- **Unordered:** The elements of a set are not stored in any particular order, which means they do not support indexing, slicing, or other sequence-like behavior.
+- **Unique Elements:** Sets automatically remove duplicate values, ensuring that each element appears only once.
+- **Mutable:** Sets are mutable, meaning you can add or remove elements after the set is created.
+- **No Indexing:** Since sets are unordered, you cannot access elements by index or position.
+### Syntax
+```python
+my_set = {1, 2, 3, 4, 5}
+# or 
+my_set = set([1, 2, 3, 4, 5])
+```
+### Basic Operations
+```python
+# Creating a set
+my_set = {10, 20, 30, 40, 50}
+print(my_set)  # Output: {10, 20, 30, 40, 50} (The order is not guaranteed and can vary each time)
+
+# Adding multiple elements
+my_set.update([70, 80, 90])
+print(my_set)  # Output: {10, 20, 30, 40, 50, 60, 70, 80, 90}
+
+# Removing an element (raises error if element doesn't exist)
+my_set.remove(20)
+print(my_set)  # Output: {10, 30, 40, 50, 60, 70, 80, 90}
+
+# Removing an element (does not raise error if element doesn't exist)
+my_set.discard(100)
+print(my_set)  # Output: {10, 30, 40, 50, 60, 70, 80, 90}
+
+# Removing and returning an arbitrary element
+removed_item = my_set.pop()
+
+# Union (combining elements from two sets)
+set_a = {1, 2, 3}
+set_b = {3, 4, 5}
+union_set = set_a | set_b  # Or use set_a.union(set_b)
+print(union_set)  # Output: {1, 2, 3, 4, 5}
+
+# Intersection (common elements between two sets)
+intersection_set = set_a & set_b  # Or use set_a.intersection(set_b)
+print(intersection_set)  # Output: {3}
+
+# Difference (elements in set_a but not in set_b) 
+difference_set = set_a - set_b  # Or use set_a.difference(set_b)
+print(difference_set)  # Output: {1, 2}
+
+# Symmetric Difference (elements in either set but not both)
+symmetric_diff_set = set_a ^ set_b  # Or use set_a.symmetric_difference(set_b)
+print(symmetric_diff_set)  # Output: {1, 2, 4, 5}
+```
 # 5. Dictionary ({key: value}) in Python <a name="maps"></a>
 # 6. Deque in Python <a name="deque"></a>
