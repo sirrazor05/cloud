@@ -1,5 +1,9 @@
-## 1. What are Python’s key features, and why is it popular for data analysis? <a name="kye_feature"></a>
+# 1. What are Python’s key features, and why is it popular for data analysis? <a name="kye_feature"></a>
 
+## Key Features of Python
+
+
+## Why is Python Popular for Data Analysis?
 ### Rich Data Processing
 Libraries like Pandas, NumPy, and SciPy provide powerful tools for manipulating datasets.
 ### Easy Data Visualization
