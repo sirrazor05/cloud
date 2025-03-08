@@ -267,5 +267,15 @@ Dictionaries are extremely useful for representing and working with data where e
 - **Mutable:** Dictionaries are mutable, meaning you can add, remove, or modify elements in them after they are created.
 - **Keys must be immutable:** The keys in a dictionary must be immutable types such as strings, numbers, or tuples, while values can be of any type (even other dictionaries).
 - **Efficient lookups:** Dictionaries provide fast access (constant time) to values using keys due to hashing. 
-
+### Syntax
+```python
+# Creating a dictionary
+my_dict = {
+    "name": "Alice",
+    "age": 25,
+    "location": "New York"
+}
+# or 
+my_dict = dict(name="Alice", age=25, location="New York")
+```
 # 6. Deque in Python <a name="deque"></a>
