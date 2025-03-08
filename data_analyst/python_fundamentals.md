@@ -1,4 +1,10 @@
-# 1. Why is Python popular for data analysis?
+# Table of Contents
+
+1. [Why is Python popular for data analysis?](#popular)
+2. [Lists in Python](#lists)
+3. [Tuples in Python](#tuples)
+
+# 1. Why is Python popular for data analysis? <a name="popular"></a>
 
 ### Rich Data Processing
 Libraries like Pandas, NumPy, and SciPy provide powerful tools for manipulating datasets.
@@ -13,7 +19,7 @@ Works well with Hadoop, Spark (PySpark), and cloud-based data storage.
 ### SQL & API Support
 Python can connect to databases and extract data using SQL queries or APIs.
 
-# 2. Lists in Python
+# 2. Lists in Python <a name="lists"></a>
 
 ### Definition
 
@@ -79,7 +85,7 @@ which makes them useful for applications that need to perform these operations f
 Since lists are ordered, you can access any item using its index,
 which is helpful when you need to work with specific positions in the data.
 
-# 3. Tuple in Python
+# 3. Tuple in Python <a name="tuples"></a>
 
 ### Definition
 A tuple is an immutable, ordered collection of elements in Python.
