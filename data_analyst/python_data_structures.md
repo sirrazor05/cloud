@@ -348,8 +348,8 @@ user_profiles = {
 #### 4. JSON-like Data Structures
 Dictionaries are often used to work with JSON (JavaScript Object Notation) data, as JSON is essentially a collection of key-value pairs.
 
-# 5. DefaultDict - Dictionary with a default value for missing keys <a name="defaultdict"></a>
-# 6. OrderedDict - Dictionary that maintains insertion order <a name="ordereddict"></a>
+# 5. Default Dictionary <a name="defaultdict"></a>
+# 6. Ordered Dictionary<a name="ordereddict"></a>
 # 7. Heap <a name="heap"></a>
 # 8. Queue <a name="queue"></a>
 # 9. Deque <a name="deque"></a>
