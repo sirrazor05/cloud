@@ -30,7 +30,7 @@ Lists are one of the most commonly used data structures because of their flexibi
 ### Key properties
 - **Ordered:** Elements maintain the order in which they were added.
 - **Mutable:** You can change the content of a list (add, remove, or modify elements).
-- **Allows Duplicates:** Lists can contain multiple occurrences of the same value..
+- **Allows Duplicates:** Lists can contain multiple occurrences of the same value.
 
 ### Syntax
 ```python
@@ -70,6 +70,13 @@ print(my_list)
 popped_value = my_list.pop()  # Removes and returns last element
 print(popped_value)  # Output: 60
 print(my_list)  # [10, 20, 25, 99, 50]
+
+# List with mixed data types
+mixed_list = [1, "apple", 3.14, True]
+
+# Printing the list
+print(mixed_list)  # Output: [1, 'apple', 3.14, True]
+
 ```
 ### Use Cases for Lists
 #### 1. Storing a Collection of Data
@@ -78,7 +85,7 @@ The order in which data is added to the list is preserved.
 #### 2. Dynamic data
 Lists allow you to add, remove, and change elements during the execution of your program.
 This makes them suitable when the data changes over time, such as user inputs or fetched data.
-#### 3. Dynamic data
+#### 3. Manipulating Data
 Lists support a wide range of operations like appending, sorting, and modifying items,
 which makes them useful for applications that need to perform these operations frequently.
 #### 4. Accessing Data by Index
@@ -92,7 +99,63 @@ A tuple is an immutable, ordered collection of elements in Python.
 Once a tuple is created, it cannot be modified (i.e., no adding, removing, or changing elements).
 Tuples can store multiple items of different types and allow duplicates.
 
-# 3. How does Python handle memory management and garbage collection?
-# 4. What is the difference between deep copy and shallow copy?
-# 5. How do you handle exceptions in Python?
-# 6. What are Python decorators, and how do they work?
+### Key properties
+- **Ordered:** Tuples maintain the order of elements.
+- **Immutable:** Once created, you cannot change the tuple’s content. This means you cannot add, remove, or modify elements.
+- **Allows Duplicates:** Like lists, tuples can contain multiple occurrences of the same value.
+- **Faster than Lists:** Due to their immutability, tuples are generally faster and use less memory than lists.
+### Syntax
+```python
+my_tuple = (1, 2, 3, 4, 5)
+```
+### Basic List Operations
+```python
+# Create a tuple
+my_tuple = (10, 20, 30, 40, 50)
+
+# Accessing elements by index
+print(my_tuple[0])   # Output: 10 (first element)
+print(my_tuple[-1])  # Output: 50 (last element)
+
+# Slicing the tuple
+print(my_tuple[1:4])  # Output: (20, 30, 40)
+
+# Concatenation of tuples
+new_tuple = my_tuple + (60, 70)
+print(new_tuple)  # Output: (10, 20, 30, 40, 50, 60, 70)
+
+# Repeating a tuple
+repeated_tuple = my_tuple * 2
+print(repeated_tuple)  # Output: (10, 20, 30, 40, 50, 10, 20, 30, 40, 50)
+
+# Nested tuple
+nested_tuple = (1, 2, (3, 4), 5)
+
+# Accessing nested tuple
+print(nested_tuple[2])   # Output: (3, 4)
+print(nested_tuple[2][1]) # Output: 4 (second element of the nested tuple)
+
+# Tuple with mixed data types
+mixed_tuple = (1, "apple", 3.14, True)
+
+print(mixed_tuple)  # Output: (1, 'apple', 3.14, True)
+
+```
+### Use Cases for Tuples
+#### 1. Fixed Data
+Since tuples are immutable, they are ideal for storing data that should not change.
+For example, you can store configuration settings or constants as tuples.
+
+**Example:** A coordinate (latitude, longitude) pair that doesn't change.
+#### 2. Return Multiple Values
+Tuples are often used to return multiple values from a function.
+
+**Example:** Returning the quotient and remainder from a division.
+#### 3. Memory Efficiency
+Tuples are more memory-efficient than lists because they are immutable,
+making them a good choice when you don't need to modify the data.
+#### 4. Key in Dictionaries
+Because tuples are immutable, they can be used as keys in dictionaries.
+Lists cannot be used as dictionary keys, but tuples can.
+
+**Example:** Using a tuple of coordinates as a dictionary key.
