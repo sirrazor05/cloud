@@ -328,7 +328,7 @@ for key, value in my_dict.items():
     # location : New York
 
 ```
-### Use Cases for Sets
+### Use Cases for Dictionaries
 #### 1. Storing Data with Unique Identifiers
 Dictionaries are ideal when you need to store data that can be referenced using unique keys,
 such as mapping student names to their grades or employee IDs to employee details.
