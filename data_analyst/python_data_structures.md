@@ -356,4 +356,4 @@ Dictionaries are often used to work with JSON (JavaScript Object Notation) data,
 # 10. Stack <a name="Stack"></a>
 # 11. Counter  <a name="Counter"></a>
 # 12. NamedTuple <a name="NamedTuple"></a>
-# 13. FrozenSet <a name="FrozenSet "></a>
+# 13. FrozenSet <a name="FrozenSet"></a>
