@@ -278,4 +278,54 @@ my_dict = {
 # or 
 my_dict = dict(name="Alice", age=25, location="New York")
 ```
+### Basic Operations
+```python
+# Creating a dictionary
+my_dict = {"name": "Alice", "age": 25, "location": "New York"}
+
+# Accessing values using keys
+print(my_dict["name"])       # Output: Alice
+print(my_dict["age"])        # Output: 25
+
+# Using get() to access values (safe for missing keys)
+print(my_dict.get("location"))  # Output: New York
+print(my_dict.get("salary"))    # Output: None (since the key doesn't exist)
+
+# Adding a new key-value pair
+my_dict["salary"] = 50000
+print(my_dict)  # Output: {'name': 'Alice', 'age': 25, 'location': 'New York', 'salary': 50000}
+
+# Modifying an existing key-value pair
+my_dict["age"] = 26
+print(my_dict)  # Output: {'name': 'Alice', 'age': 26, 'location': 'New York', 'salary': 50000}
+
+# Removing a key-value pair using 'del'
+del my_dict["salary"]
+print(my_dict)  # Output: {'name': 'Alice', 'age': 26, 'location': 'New York'}
+
+# Removing a key-value pair using pop()
+removed_value = my_dict.pop("age")
+print(removed_value)  # Output: 26
+print(my_dict)  # Output: {'name': 'Alice', 'location': 'New York'}
+
+# Checking if a key exists in the dictionary
+print("name" in my_dict)   # Output: True
+print("salary" in my_dict) # Output: False
+
+# Iterating through keys
+for key in my_dict:
+    print(key)  # Output: name, location
+
+# Iterating through values
+for value in my_dict.values():
+    print(value)  # Output: Alice, New York
+
+# Iterating through both keys and values
+for key, value in my_dict.items():
+    print(key, ":", value)
+    # Output:
+    # name : Alice
+    # location : New York
+
+```
 # 6. Deque in Python <a name="deque"></a>
