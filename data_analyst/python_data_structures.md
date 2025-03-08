@@ -1,28 +1,12 @@
 # Table of Contents
 
-1. [Why is Python popular for data analysis?](#popular)
-2. [Lists in Python](#lists)
-3. [Tuples in Python](#tuples)
-4. [Sets in Python](#sets)
-5. [Dictionary ({key: value}) in Python](#maps)
-6. [Deque in Python](#deque)
+1. [Lists in Python](#lists)
+2. [Tuples in Python](#tuples)
+3. [Sets in Python](#sets)
+4. [Dictionary ({key: value}) in Python](#maps)
+5. [Deque in Python](#deque)
 
-# 1. Why is Python popular for data analysis? <a name="popular"></a>
-
-### Rich Data Processing
-Libraries like Pandas, NumPy, and SciPy provide powerful tools for manipulating datasets.
-### Easy Data Visualization
-Libraries like Matplotlib and Seaborn help create insightful charts and graphs.
-### Machine Learning & AI Integration
-Python supports ML frameworks like Scikit-learn, TensorFlow, and PyTorch.
-### Automation & Scripting
-Python helps automate data cleaning, processing, and reporting tasks.
-### Big Data Compatibility
-Works well with Hadoop, Spark (PySpark), and cloud-based data storage.
-### SQL & API Support
-Python can connect to databases and extract data using SQL queries or APIs.
-
-# 2. Lists in Python <a name="lists"></a>
+# 1. Lists in Python <a name="lists"></a>
 
 ### Definition
 
@@ -95,7 +79,7 @@ which makes them useful for applications that need to perform these operations f
 Since lists are ordered, you can access any item using its index,
 which is helpful when you need to work with specific positions in the data.
 
-# 3. Tuple in Python <a name="tuples"></a>
+# 2. Tuple in Python <a name="tuples"></a>
 
 ### Definition
 A tuple is an immutable, ordered collection of elements in Python.
@@ -166,7 +150,7 @@ Lists cannot be used as dictionary keys, but tuples can.
 
 **Example:** Using a tuple of coordinates as a dictionary key.
 
-# 4. Sets in Python <a name="sets"></a>
+# 3. Sets in Python <a name="sets"></a>
 A set is an unordered collection of unique elements. 
 Unlike lists and tuples, sets do not maintain the order of the elements, and they automatically remove duplicates.
 
@@ -256,7 +240,7 @@ print(unique_numbers)  # Output: {1, 2, 3, 4, 5}
 
 **Example:** Using a tuple of coordinates as a dictionary key.
 
-# 5. Dictionary ({key: value}) in Python <a name="maps"></a>
+# 4. Dictionary ({key: value}) in Python <a name="maps"></a>
 A dictionary in Python is an unordered collection of key-value pairs.
 Each key in a dictionary is unique, and it is associated with a specific value.
 Dictionaries are extremely useful for representing and working with data where each element is identified by a unique key.
@@ -356,4 +340,4 @@ user_profiles = {
 #### 4. JSON-like Data Structures
 Dictionaries are often used to work with JSON (JavaScript Object Notation) data, as JSON is essentially a collection of key-value pairs.
 
-# 6. Deque in Python <a name="deque"></a>
+# 5. Deque in Python <a name="deque"></a>
