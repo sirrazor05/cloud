@@ -140,6 +140,9 @@ mixed_tuple = (1, "apple", 3.14, True)
 
 print(mixed_tuple)  # Output: (1, 'apple', 3.14, True)
 
+# Trying to modify an element of the tuple (this will raise an error)
+my_tuple[1] = 100  # Invalid operation: 'tuple' object does not support item assignment
+
 ```
 ### Use Cases for Tuples
 #### 1. Fixed Data
