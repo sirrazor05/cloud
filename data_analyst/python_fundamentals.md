@@ -3,6 +3,9 @@
 1. [Why is Python popular for data analysis?](#popular)
 2. [Lists in Python](#lists)
 3. [Tuples in Python](#tuples)
+4. [Sets in Python](#sets)
+5. [Dictionary ({key: value}) in Python](#maps)
+6. [Deque in Python](#deque)
 
 # 1. Why is Python popular for data analysis? <a name="popular"></a>
 
@@ -162,3 +165,7 @@ Because tuples are immutable, they can be used as keys in dictionaries.
 Lists cannot be used as dictionary keys, but tuples can.
 
 **Example:** Using a tuple of coordinates as a dictionary key.
+
+# 4. Sets in Python <a name="sets"></a>
+# 5. Dictionary ({key: value}) in Python <a name="maps"></a>
+# 6. Deque in Python <a name="deque"></a>
