@@ -328,4 +328,32 @@ for key, value in my_dict.items():
     # location : New York
 
 ```
+### Use Cases for Sets
+#### 1. Storing Data with Unique Identifiers
+Dictionaries are ideal when you need to store data that can be referenced using unique keys,
+such as mapping student names to their grades or employee IDs to employee details.
+
+**Example:** Storing student scores:
+```python
+student_scores = {
+    "Alice": 90,
+    "Bob": 85,
+    "Charlie": 88
+}
+```
+#### 2. Fast Lookups
+Dictionaries allow for fast lookups by key, making them ideal for situations where you need quick access to values.
+#### 3. Mapping Relationships
+Dictionaries are perfect for mapping relationships, such as mapping user IDs to user information.
+
+**Example:** Mapping user IDs to user profile information:
+```python
+user_profiles = {
+    101: {"name": "Alice", "email": "alice@example.com"},
+    102: {"name": "Bob", "email": "bob@example.com"}
+}
+```
+#### 4. JSON-like Data Structures
+Dictionaries are often used to work with JSON (JavaScript Object Notation) data, as JSON is essentially a collection of key-value pairs.
+
 # 6. Deque in Python <a name="deque"></a>
