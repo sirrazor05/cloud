@@ -223,8 +223,20 @@ print(symmetric_diff_set)  # Output: {1, 2, 4, 5}
 ### Use Cases for Sets
 #### 1. Storing Unique Data
 Since sets automatically remove duplicates, they are great for storing unique data, such as unique IDs or names.
+```python
+emails = {"alice@example.com", "bob@example.com", "alice@example.com"}
+print(emails)  # Output: {'alice@example.com', 'bob@example.com'}
+```
 #### 2. Mathematical Set Operations
 Sets are perfect when you need to perform set operations like union, intersection, and difference (e.g., finding common elements between two sets).
+
+```python
+# Finding common tags between two users' posts.
+user_1_tags = {"python", "data", "analysis"}
+user_2_tags = {"data", "python", "AI"}
+common_tags = user_1_tags & user_2_tags  # Intersection
+print(common_tags)  # Output: {'python', 'data'}
+```
 #### 3. Efficient Membership Testing
 Checking if an element is contained in a set is fast (constant time) because sets use hash-based implementation.
 
