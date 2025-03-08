@@ -13,7 +13,7 @@ Works well with Hadoop, Spark (PySpark), and cloud-based data storage.
 ### SQL & API Support
 Python can connect to databases and extract data using SQL queries or APIs.
 
-# 2. List in Python
+# 2. Lists in Python
 
 ### Definition
 
@@ -41,6 +41,8 @@ print(my_list[-1]) # Output: 50 (Last element)
 
 # Slicing the list
 print(my_list[1:4])  # Output: [20, 30, 40] (elements from index 1 to 3)
+# Slicing from the beginning to index 2
+print(my_list[:2])   # Output: [1, 2]
 
 # Modifying an element
 my_list[2] = 99  # [10, 20, 99, 40, 50]
@@ -63,7 +65,19 @@ popped_value = my_list.pop()  # Removes and returns last element
 print(popped_value)  # Output: 60
 print(my_list)  # [10, 20, 25, 99, 50]
 ```
-
+### Use Cases for Lists
+#### 1. Storing a Collection of Data
+Lists are ideal when you need an **ordered collection** of items, such as names, numbers, or other types of data.
+The order in which data is added to the list is preserved.
+#### 2. Dynamic data
+Lists allow you to add, remove, and change elements during the execution of your program.
+This makes them suitable when the data changes over time, such as user inputs or fetched data.
+#### 3. Dynamic data
+Lists support a wide range of operations like appending, sorting, and modifying items,
+which makes them useful for applications that need to perform these operations frequently.
+#### 4. Accessing Data by Index
+Since lists are ordered, you can access any item using its index,
+which is helpful when you need to work with specific positions in the data.
 
 # 3. How does Python handle memory management and garbage collection?
 # 4. What is the difference between deep copy and shallow copy?
