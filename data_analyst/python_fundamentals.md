@@ -13,44 +13,57 @@ Works well with Hadoop, Spark (PySpark), and cloud-based data storage.
 ### SQL & API Support
 Python can connect to databases and extract data using SQL queries or APIs.
 
-# 2. Explain the difference between lists, tuples, and sets.
+# 2. List in Python
 
-Python provides different data structures to store collections of data:
-- **Lists** are mutable and ordered.
-- **Tuples** are immutable and ordered.
-- **Sets** are unordered and contain unique elements.
+### Definition
 
-## Comparison Table
+A list is a mutable, ordered collection of elements in Python.
+It can store multiple items in a single variable and allows duplicates. 
+Lists are one of the most commonly used data structures because of their flexibility and ease of use.
 
-| Feature      | **List** 📝 | **Tuple** 🔗 | **Set** 🔀 |
-|-------------|------------|-------------|------------|
-| **Definition** | Ordered, mutable collection | Ordered, immutable collection | Unordered, mutable collection with unique elements |
-| **Syntax** | `my_list = [1, 2, 3]` | `my_tuple = (1, 2, 3)` | `my_set = {1, 2, 3}` |
-| **Mutability** | ✅ Mutable (Can change) | ❌ Immutable (Cannot change) | ✅ Mutable (Can add/remove, but elements must be unique) |
-| **Duplicates Allowed?** | ✅ Yes | ✅ Yes | ❌ No (Duplicates removed automatically) |
-| **Indexing & Slicing** | ✅ Yes (`list[0]`) | ✅ Yes (`tuple[0]`) | ❌ No (Unordered, no indexing) |
-| **Performance** | 🔴 Slower (More memory, flexible) | 🟢 Faster (Less memory, fixed) | 🟢 Fast lookups, but unordered |
-| **Use Case** | When you need a **modifiable** sequence | When you need a **constant** sequence | When you need **unique** values & fast lookups |
+### Key properties
+- **Ordered:** Elements maintain the order in which they were added.
+- **Mutable:** You can change the content of a list (add, remove, or modify elements).
+- **Allows Duplicates:** Lists can contain multiple occurrences of the same value..
 
-## Examples
-
+### Syntax
 ```python
-# List Example
-my_list = [1, 2, 3, 3]
-my_list.append(4)  # ✅ Allowed
-my_list[0] = 99    # ✅ Allowed
-print(my_list)  # Output: [99, 2, 3, 3, 4]
-
-# Tuple Example
-my_tuple = (1, 2, 3, 3)
-# my_tuple[0] = 99  ❌ TypeError: 'tuple' object does not support item assignment
-print(my_tuple)  # Output: (1, 2, 3, 3)
-
-# Set Example
-my_set = {1, 2, 3, 3}
-my_set.add(4)  # ✅ Allowed
-print(my_set)  # Output: {1, 2, 3, 4} (No duplicates!)
+my_list = [1, 2, 3, 4, 5]
 ```
+### Basic List Operations
+```python
+# Create a list
+my_list = [10, 20, 30, 40, 50]
+
+# Accessing elements by index
+print(my_list[0])  # Output: 10
+print(my_list[-1]) # Output: 50 (Last element)
+
+# Slicing the list
+print(my_list[1:4])  # Output: [20, 30, 40] (elements from index 1 to 3)
+
+# Modifying an element
+my_list[2] = 99  # [10, 20, 99, 40, 50]
+print(my_list)
+
+# Adding an element to the list
+my_list.append(60)  # [10, 20, 99, 40, 50, 60]
+print(my_list)
+
+# Inserting an element at a specific position
+my_list.insert(2, 25)  # [10, 20, 25, 99, 40, 50, 60]
+print(my_list)
+
+# Removing an element
+my_list.remove(40)  # [10, 20, 25, 99, 50, 60]
+print(my_list)
+
+# Popping an element (removes and returns it)
+popped_value = my_list.pop()  # Removes and returns last element
+print(popped_value)  # Output: 60
+print(my_list)  # [10, 20, 25, 99, 50]
+```
+
 
 # 3. How does Python handle memory management and garbage collection?
 # 4. What is the difference between deep copy and shallow copy?
