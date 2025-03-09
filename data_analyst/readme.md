@@ -1,4 +1,4 @@
-- [Python fundamentals](python_data_structures.md)
+- Python fundamentals
 - [Python data structures](python_data_structures.md)
 - [Data Manipulation with Pandas & NumPy](data_manip.md)
 - SQL & Database Connectivity
