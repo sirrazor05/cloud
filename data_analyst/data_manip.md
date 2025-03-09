@@ -35,7 +35,17 @@ import numpy as np
 # Load the sales data into a DataFrame
 df = pd.read_csv('sales_data.csv')
 
-# Display the first few rows
-print(df.head())
+# Display the original DataFrame
+print("Original DataFrame:")
+print(df)
 
 ```
+Example CSV Content (sales_data.csv):
+
+| Product   | Region | Price | Quantity Sold | Date       |
+|-----------|--------|-------|---------------|------------|
+| Product A | East   | 100   | 20            | 2023-01-01 |
+| Product B | West   | NaN   | 15            | NaN        |
+| Product A | North  | 100   | 30            | 2023-01-03 |
+| NaN       | East   | 200   | NaN           | 2023-01-04 |
+| Product B | West   | 150   | 25            | 2023-01-05 |
