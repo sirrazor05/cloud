@@ -1,8 +1,196 @@
 # Table of Contents
 
-1. [Scenario 1: Sales data](#scenario1)
+[Handling Missing Data](#handlemissingdata)
 
-# 1. Scenario 1: Sales data <a name="scenario1"></a>
+
+[Scenario 1: Sales data](#scenario1)
+
+# Handling Missing Data <a name="handlemissingdata"></a>
+
+
+
+
+### Detecting Missing Data
+Before handling missing data, it's important to identify missing values in the dataset.
+```python
+import pandas as pd
+import numpy as np
+
+# Creating a sample DataFrame with missing values
+data = {
+    "Product": ["A", "B", np.nan, "D"],
+    "Price": [100, 200, 150, np.nan],
+    "Quantity": [10, np.nan, 8, 5]
+}
+df = pd.DataFrame(data)
+print(df)
+```
+Output:
+
+| Product |Price| Quantity |
+|---------|-----|----------|
+| A       | 100 | 	10      |
+| B       | 200 | 	NaN     |
+| NaN     | 150 | 	8       |
+| D       | NaN | 	5       |
+
+```python
+# Checking for Missing Values
+print(df.isnull())
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| False   | False | 	False |
+| False   | False | 	True  |
+| True    | False | 	False |
+| False   | True  | 	False |
+
+```python
+# Sum of Missing Values
+print(df.isnull().sum())
+```
+
+Output:
+
+| Column   | Missing Values |
+|----------|----------------|
+| Product  | 1              |
+| Price    | 1              | 
+| Quantity | 1              | 
+
+### Replace with a Constant Value
+```python
+# Replace with a Constant Value
+ df.fillna(0)
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100   | 10       |
+| B       | 200   | 0        |
+| 0       | 150   | 8        |
+| D       | 0     | 5        |
+
+### Replace with Column Mean
+```python
+df["Price"].fillna(df["Price"].mean(), inplace=True)
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100.0 | 10       |
+| B       | 200.0 | NaN      |
+| NaN     | 150.0 | 8        |
+| D       | 150.0 | 5        |
+
+### Replace with Column Median
+The median is a statistical measure that represents the middle value in a sorted list of numbers.
+If the list has an odd number of elements, the median is the middle element. 
+If the list has an even number of elements, the median is the average of the two middle elements.
+```python
+df["Quantity"].fillna(df["Quantity"].median(), inplace=True)
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100.0 | 10       |
+| B       | 200.0 | 8        |
+| NaN     | 150.0 | 8        |
+| D       | NaN   | 5        |
+
+### Replace with Most Frequent Value (Mode)
+The .mode() function in Pandas is used to return the mode of a dataset, which is the value that appears most frequently.
+In simple terms, the mode is the most common value in a column.
+When you use .mode(), it returns a Series of the most frequent values in the column. 
+The reason .mode() returns a Series (even if there is only one mode) is because there can be multiple values that occur with the same highest frequency.
+If there are multiple modes, all of them will be returned.
+
+```python
+# in our case all values appear 1 time so we take the first one A
+df["Product"].fillna(df["Product"].mode()[0], inplace=True)
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100.0 | 10       |
+| B       | 200.0 | NaN      |
+| A       | 150.0 | 8        |
+| D       | NaN   | 5        |
+
+### Forward Fill (ffill)
+In forward filling, the missing value is replaced by the most recent valid (non-null) value before it.
+Essentially, you "carry forward" the last known value to fill the missing data.
+```python
+df.fillna(method="ffill", inplace=True)
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100.0 | 10       |
+| B       | 200.0 | 10       |
+| B       | 150.0 | 8        |
+| D       | 150.0 | 5        |
+
+### Backward Fill (bfill)
+Backward fill (often referred to as bfill) is another method used to fill missing values in a dataset, especially in time-series data. 
+Unlike forward fill (ffill), in backward filling, the missing value is replaced by the next valid (non-null) value after it.
+Essentially, you "carry backward" the next known value to fill the missing data.
+
+```python
+df.fillna(method="bfill", inplace=True)
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100.0 | 10       |
+| B       | 200.0 | 8        |
+| D       | 150.0 | 8        |
+| D       | NaN   | 5        |
+
+
+### Interpolating Missing Values
+The interpolate() method is a pandas function that is used to fill missing (NaN) values in a column by estimating them based on other available data points.
+By default, interpolate() uses linear interpolation. 
+This means that it will estimate the missing values by drawing a straight line between the known values before and after the missing value.
+The missing value will be filled based on this straight line.
+
+Input 
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100   | 10       |
+| B       | 200   | NaN      |
+| NaN     | 150   | 8        |
+| D       | NaN   | 5        |
+| E       | 75    | 3        |
+
+The missing price value for D will be interpolated based on the surrounding valid values:
+
+- Before row 4: Price = 150 (from row 3, NaN).
+- After row 4: Price = 75 (from row 5, E).
+
+```python
+df["Price"] = df["Price"].interpolate()
+```
+Output:
+
+| Product | Price | Quantity |
+|---------|-------|----------|
+| A       | 100   | 10       |
+| B       | 200   | NaN      |
+| NaN     | 150   | 8        |
+| D       | 112.5 | 5        |
+| E       | 75    | 3        |
+
+# Scenario 1: Sales data <a name="scenario1"></a>
 
 ### Definition
 
