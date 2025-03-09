@@ -125,7 +125,7 @@ Now, let's calculate the total and average sales per product to identify the top
 # Group by 'Product' and calculate the total and average sales
 product_sales = df.groupby('Product').agg(
     total_sales=('Total Sales', 'sum'),
-    average_sales=('Total Sales', 'mean')
+    average_sales=('Average Sales', 'mean')
 ).reset_index()
 
 # Display the product sales analysis
