@@ -103,7 +103,7 @@ Next, we analyze the sales performance across different regions by calculating t
 # Group by 'Region' and calculate the total and average sales
 region_sales = df.groupby('Region').agg(
     total_sales=('Total Sales', 'sum'),
-    average_sales=('Total Sales', 'mean')
+    average_sales=('Average Sales', 'mean')
 ).reset_index()
 
 # Display the region sales analysis
