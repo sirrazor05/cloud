@@ -30,7 +30,6 @@ We’ll start by importing the necessary libraries, reading the data from a CSV 
 
 ```python
 import pandas as pd
-import numpy as np
 
 # Load the sales data into a DataFrame
 df = pd.read_csv('sales_data.csv')
