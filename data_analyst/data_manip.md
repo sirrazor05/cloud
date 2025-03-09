@@ -185,6 +185,23 @@ Output:
 | D       | 112.5 | 5        |
 | E       | 75    | 3        |
 
+### Add date-range
+
+```python
+df["Date"] = pd.date_range(start="2023-01-01", periods=len(df), freq="D")
+df.set_index("Date", inplace=True)
+df = df.asfreq("D")  # Ensures continuous date range
+```
+This line creates a date range that starts from "2023-01-01" and spans len(df) periods, with a daily frequency ("D").
+
+Output:
+
+| Date       | Product | Price | Quantity |
+|------------|---------|-------|----------|
+| 2023-01-01 | A       | 100.0 | 10       |
+| 2023-01-02 | B       | 200.0 | 8        |
+| 2023-01-03 | A       | 175.0 | 8        |
+| 2023-01-04 | D       | 150.0 | 5        |
 
 # Types of interpolation <a name="interpolation"></a>
 
