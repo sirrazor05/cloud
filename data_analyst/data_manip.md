@@ -1,8 +1,8 @@
 # Table of Contents
 
-1. [Lists](#scenario1)
+1. [Scenario 1: Sales data](#scenario1)
 
-# 1. Scenario: Sales data <a name="scenario1"></a>
+# 1. Scenario 1: Sales data <a name="scenario1"></a>
 
 ### Definition
 
