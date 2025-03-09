@@ -1,14 +1,10 @@
 # Table of Contents
 
 [Handling Missing Data](#handlemissingdata)
-
-
+[Interpolation](#interpolation)
 [Scenario 1: Sales data](#scenario1)
 
 # Handling Missing Data <a name="handlemissingdata"></a>
-
-
-
 
 ### Detecting Missing Data
 Before handling missing data, it's important to identify missing values in the dataset.
@@ -189,6 +185,11 @@ Output:
 | NaN     | 150   | 8        |
 | D       | 112.5 | 5        |
 | E       | 75    | 3        |
+
+
+# Interpolation <a name="interpolation"></a>
+
+TBD
 
 # Scenario 1: Sales data <a name="scenario1"></a>
 
