@@ -135,8 +135,7 @@ Output:
 | D       | 150.0 | 5        |
 
 ### Backward Fill (bfill)
-Backward fill (often referred to as bfill) is another method used to fill missing values in a dataset, especially in time-series data. 
-Unlike forward fill (ffill), in backward filling, the missing value is replaced by the next valid (non-null) value after it.
+Unlike forward fill (ffill), in backward filling, the missing value is replaced by the next valid (non-null) value after it if exists.
 Essentially, you "carry backward" the next known value to fill the missing data.
 
 ```python
@@ -187,9 +186,17 @@ Output:
 | E       | 75    | 3        |
 
 
-# Interpolation <a name="interpolation"></a>
+# Types of interpolation <a name="interpolation"></a>
 
-TBD
+### Linear Interpolation
+The missing values are estimated by drawing a straight line between the surrounding data points.
+It's the most common type and works well for datasets where the values change steadily over time.
+### Polynomial Interpolation
+More complex than linear, this involves fitting a polynomial to the data. It’s used when the data follows a non-linear trend.
+### Spline Interpolation
+This uses a piecewise polynomial function (splines) to estimate the values. It's useful for smooth interpolation in datasets with curves.
+### Time-based Interpolation
+This is used specifically with time-series data, where interpolation occurs based on time intervals.
 
 # Scenario 1: Sales data <a name="scenario1"></a>
 
