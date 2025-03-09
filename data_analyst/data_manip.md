@@ -65,10 +65,6 @@ df['Date'].fillna('Unknown', inplace=True)
 # Display the DataFrame after handling NaN values
 print("\nDataFrame After Handling NaN Values:")
 print(df)
-
-# Display the DataFrame after handling NaN values
-print("\nDataFrame After Handling NaN Values:")
-print(df)
 ```
 Output:
 
@@ -79,3 +75,87 @@ Output:
 | Product A | North  | 100   | 30            | 2023-01-03 |
 | Unknown   | East   | 200   | 0             | 2023-01-04 |
 | Product B | West   | 150   | 25            | 2023-01-05 |
+
+#### Calculate Total Sales Value
+Now, we calculate the Total Sales Value for each row, which is the product of the Price and Quantity Sold.
+```python
+# Add a new column for Total Sales (Price * Quantity Sold)
+df['Total Sales'] = df['Price'] * df['Quantity Sold']
+
+# Display the DataFrame with the Total Sales column
+print("\nDataFrame After Calculating Total Sales:")
+print(df)
+```
+Output:
+
+| Product   | Region | Price | Quantity Sold | Date       | Total Sales |
+|-----------|--------|-------|---------------|------------|-------------|
+| Product A | East   | 100   | 20            | 2023-01-01 | 2000        |
+| Product B | West   | 0     | 15            | Unknown    | 0           |    
+| Product A | North  | 100   | 30            | 2023-01-03 | 3000        |   
+| Unknown   | East   | 200   | 0             | 2023-01-04 | 0           |  
+| Product B | West   | 150   | 25            | 2023-01-05 | 3750        | 
+
+#### Analyze Sales Performance Across Regions
+
+Next, we analyze the sales performance across different regions by calculating the total and average sales per region.
+
+```python
+# Group by 'Region' and calculate the total and average sales
+region_sales = df.groupby('Region').agg(
+    total_sales=('Total Sales', 'sum'),
+    average_sales=('Total Sales', 'mean')
+).reset_index()
+
+# Display the region sales analysis
+print("\nSales Performance Across Regions:")
+print(region_sales)
+```
+Output:
+
+| Region   | Total Sales | Average Sales|
+|----------|-------------|--------------|
+| East     | 5000        | 2500.0       |
+| North    | 3000        | 3000.0       |
+| Unknown  | 0           | 0.0          | 
+| West     | 3750        | 1875.0       |
+
+#### Calculate Average and Total Sales Per Product
+Now, let's calculate the total and average sales per product to identify the top-selling products.
+```python
+# Group by 'Product' and calculate the total and average sales
+product_sales = df.groupby('Product').agg(
+    total_sales=('Total Sales', 'sum'),
+    average_sales=('Total Sales', 'mean')
+).reset_index()
+
+# Display the product sales analysis
+print("\nTotal and Average Sales Per Product:")
+print(product_sales)
+```
+Output:
+
+| Product   | Total Sales | Average Sales |
+|-----------|-------------|---------------|
+| Product A | 5000        | 2500.0        |
+| Product B | 5500        | 2750.0        |
+| Unknown   | 0           | 0.0           |
+
+#### Identify Top-Selling Products Based on Total Sales
+
+Finally, we identify the top-selling products based on the total sales value.
+```python
+# Sort products by total sales in descending order to identify top sellers
+top_selling_products = product_sales.sort_values(by='total_sales', ascending=False)
+
+# Display the top-selling products
+print("\nTop-Selling Products Based on Total Sales:")
+print(top_selling_products)
+```
+Output:
+
+| Product   | Total Sales | Average Sales |
+|-----------|-------------|---------------|
+| Product B | 5000        | 2750.0        |
+| Product A | 5500        | 2500.0        |
+| Unknown   | 0           | 0.0           |
