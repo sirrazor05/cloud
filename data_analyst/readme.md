@@ -1,10 +1,10 @@
 - [Python fundamentals](python_data_structures.md)
 - [Python data structures](python_data_structures.md)
-- [Data Manipulation with Pandas & NumPy](python_data_structures.md)
-- [SQL & Database Connectivity](python_data_structures.md)
-- [Data Engineering Concepts](python_data_structures.md)
-- [File Handling & APIs](python_data_structures.md)
-- [Data Structures & Algorithms](python_data_structures.md)
-- [Automation & Scripting](python_data_structures.md)
-- [Data Visualization](python_data_structures.md)
-- [System Design & Scalability](python_data_structures.md)
+- [Data Manipulation with Pandas & NumPy](data_manip.md)
+- SQL & Database Connectivity
+- Data Engineering Concepts
+- File Handling & APIs
+- Data Structures & Algorithms
+- Automation & Scripting
+- Data Visualization
+- System Design & Scalability
