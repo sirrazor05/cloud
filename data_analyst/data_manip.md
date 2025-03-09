@@ -1,10 +1,8 @@
 # Table of Contents
 
-[Handling Missing Data](#handlemissingdata)
-
-[Interpolation](#interpolation)
-
-[Scenario 1: Sales data](#scenario1)
+- [Handling Missing Data](#handlemissingdata)
+- [Interpolation](#interpolation)
+- [Scenario 1: Sales data](#scenario1)
 
 # Handling Missing Data <a name="handlemissingdata"></a>
 
