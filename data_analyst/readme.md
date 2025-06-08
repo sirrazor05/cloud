@@ -8,3 +8,4 @@
 - Automation & Scripting
 - Data Visualization
 - System Design & Scalability
+- [Sql interview questions](sql.md)
