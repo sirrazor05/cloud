@@ -344,3 +344,145 @@ Surrogate keys are preferred for flexibility and stability.
 - Avoid joining large datasets unnecessarily.
 - Analyze execution plans to identify bottlenecks.
 
+###  What Are the Trade-offs Between Normalized and Denormalized Database Schemas? <a name="normalization-tradeoffs"></a>
+
+- **Normalized:** Reduces redundancy, easier to maintain, but may require complex joins.
+- **Denormalized:** Improves read performance and simplicity but increases redundancy and update anomalies.
+
+### What Are Common Causes of Slow Queries and How Do You Troubleshoot Them? <a name="slow-query-causes"></a>
+
+- Missing indexes.
+- Large data scans/full table scans.
+- Poorly written queries (e.g., unnecessary joins, subqueries).
+- Locking/blocking.
+- Network latency.
+
+Use profiling tools, logs, and execution plans to diagnose.
+
+### Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each? <a name="clustered-vs-nonclustered"></a>
+
+- **Clustered Index:** The table’s data is physically sorted according to this index (one per table). Efficient for range queries.
+- **Non-clustered Index:** Separate structure pointing to data rows. Multiple non-clustered indexes can exist per table. Good for quick lookups on columns.
+
+Use clustered for primary keys or frequently range-queried columns, non-clustered for others.
+
+### What Is the Difference Between a Database View and a Materialized View?<a name="view-vs-materialized-view"></a>
+
+- **View:** A virtual table based on a query. Data is not stored, calculated on access.
+- **Materialized view:** Stores the result physically. Faster reads but needs refresh to stay current.
+
+### What Are Some Common Pitfalls with NULL Values in SQL?<a name="null-pitfalls"></a>
+
+- Comparisons with NULL always return UNKNOWN, so use `IS NULL` instead of `= NULL`.
+- Aggregate functions ignore NULLs.
+- NULLs can cause unexpected results in joins or conditions.
+
+### Explain the Concept of a Covering Index. <a name="covering-index"></a>
+
+An index that contains all the columns a query needs, so the database can fulfill the query using only the index without accessing the table data.
+
+### How Would You Optimize a Query That Has Multiple OR Conditions? <a name="or-condition-optimization"></a>
+
+- Rewrite using `UNION` or `UNION ALL` if appropriate.
+- Use indexes on the involved columns.
+- Sometimes split the query into separate queries and combine results.
+
+### How Do You Implement Pagination in SQL Queries Efficiently? <a name="pagination"></a>
+
+Use `LIMIT` and `OFFSET` in MySQL/PostgreSQL or `ROW_NUMBER()` in SQL Server with a filter on row number. For large offsets, keyset pagination (using a `WHERE` clause with last seen value) is more efficient.
+
+**Example with ROW_NUMBER():**
+
+```sql
+WITH Ordered AS (
+  SELECT *, ROW_NUMBER() OVER (ORDER BY id) AS rn FROM table
+)
+SELECT * FROM Ordered WHERE rn BETWEEN 11 AND 20;
+```
+
+### Scalar Function vs Table-Valued Function <a name="scalar-vs-table-func"></a>
+
+- **Scalar function:** Returns a single value.
+- **Table-valued function:** Returns a table (result set) that can be queried like a regular table.
+
+### Explain how transactions work in SQL. What commands are used?<a name="transactions"></a>
+
+Transactions group SQL statements into a single unit of work. Commands:
+
+- BEGIN or START TRANSACTION to start.
+- COMMIT to save changes.
+- ROLLBACK to undo changes.
+
+### What is the difference between a primary key and a unique key? <a name="primary-vs-unique-key"></a>
+
+- Primary key: Uniquely identifies each row; cannot be NULL; one per table.
+- Unique key: Ensures uniqueness of values but can allow one NULL (depending on DB).
+
+### SQL Triggers — Overview, Types, and Examples<a name="sql-triggers"></a>
+
+🔹 What is a Trigger in SQL?
+
+A trigger is a special stored procedure that automatically runs when certain events occur in a database, like:
+
+- INSERT
+- UPDATE
+- DELETE
+
+It’s attached to a table or view, and is typically used to enforce business rules, audit changes, or maintain integrity.
+
+🔹 Types of Triggers
+
+- BEFORE Trigger: Fires before the operation is executed. Often used to validate or modify input.
+- AFTER Trigger: Fires after the operation is completed. Useful for auditing or logging.
+- INSTEAD OF Trigger (mostly for views): Replaces the operation with custom logic.
+
+🔹 Trigger Events
+
+You can define triggers for:
+
+- BEFORE INSERT
+- AFTER INSERT
+- BEFORE UPDATE
+- AFTER UPDATE
+- BEFORE DELETE
+- AFTER DELETE
+
+When to Use Triggers
+
+✅ Use for:
+
+- Auditing (e.g., logging changes)
+- Enforcing complex validation rules
+- Syncing derived tables
+
+🚫 Avoid when:
+
+- Logic gets too complex (can hurt readability and debugging)
+- Performance matters (triggers add overhead)
+
+### Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key? <a name="primary-key-types"></a>
+
+- INT: Small tables
+- BIGINT: Large tables
+- UUID: Decentralized inserts (e.g., distributed systems)
+
+###  What is a query execution plan? <a name="query-execution-plan"></a>
+
+It shows how SQL engine executes a query—e.g., join types, scan types, index usage. Use it to identify performance bottlenecks.
+
+###  PARTITION BY vs GROUP BY <a name="partition-vs-group"></a>
+
+- GROUP BY reduces rows.
+- PARTITION BY retains rows but groups them logically for window functions.
+
+### When to use composite primary keys? <a name="composite-primary-keys"></a>
+
+- When the combination of two or more columns uniquely identifies a row.
+- Often in many-to-many or versioning tables.
+
+### 40. What is a CROSS JOIN? <a name="cross-join"></a>
+
+A CROSS JOIN returns the Cartesian product of two tables — meaning every row from the first table is combined with every row from the second.
+
+- If Table A has 3 rows and Table B has 4 rows, the result will have 3 × 4 = 12 rows.
+- It does not require any ON condition.
