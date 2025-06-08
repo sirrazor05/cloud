@@ -1,5 +1,10 @@
 # Table of Contents
 
+[What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?](#join)
+[What is the difference between WHERE and HAVING?](#where_having)
+[How do you find duplicates in a table?](#duplicates)
+[What is the difference between UNION and UNION ALL?](#union_vs_union_all)
+
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
 - **INNER JOIN**: returns only matching rows in both tables
@@ -11,7 +16,7 @@
 SELECT * FROM orders INNER JOIN customers ON orders.customer_id = customers.id;
 ```
 
-### What is the difference between WHERE and HAVING?? <a name="where_having"></a>
+### What is the difference between WHERE and HAVING? <a name="where_having"></a>
 
 - **WHERE**: filters rows before aggregation
 - **HAVING**: filters after aggregation (used with GROUP BY)
@@ -480,7 +485,7 @@ It shows how SQL engine executes a query—e.g., join types, scan types, index u
 - When the combination of two or more columns uniquely identifies a row.
 - Often in many-to-many or versioning tables.
 
-### 40. What is a CROSS JOIN? <a name="cross-join"></a>
+### What is a CROSS JOIN? <a name="cross-join"></a>
 
 A CROSS JOIN returns the Cartesian product of two tables — meaning every row from the first table is combined with every row from the second.
 
