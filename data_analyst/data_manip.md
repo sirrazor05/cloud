@@ -19,7 +19,7 @@ data = {
     "Quantity": [10, np.nan, 8, 5]
 }
 df = pd.DataFrame(data)
-print(df) 
+print(df)
 ```
 Output:
 
