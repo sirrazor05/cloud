@@ -77,12 +77,13 @@ A cumulative sum (also called a running total) is a sum that grows row by row. F
 This is done using the SUM() window function with OVER(ORDER BY ...).
 
 Example Table: sales
-```sql
-id	customer	amount	sale_date
-1	Alice	    100	    2023-01-01
-2	Alice	    200	    2023-01-02
-3	Alice	    150	    2023-01-03
-```
+
+| id| customer | amount | sale_date  |
+|---|----------|--------|------------|
+|1	 | Alice    | 100    | 2 023-01-01|
+|2	 | Alice    | 200    | 2023-01-02 |
+|3	 | Alice    | 150    | 2023-01-03 |
+
 SQL Query for Cumulative Sum:
 
 ```sql
@@ -93,13 +94,14 @@ SELECT
   SUM(amount) OVER (PARTITION BY customer ORDER BY sale_date) AS running_total
 FROM sales;
 ```
-Result: 
-```sql
-customer	sale_date	amount	running_total
-Alice	2023-01-01	100	100
-Alice	2023-01-02	200	300
-Alice	2023-01-03	150	450
-```
+Result:
+
+| customer | sale_date  | amount | running_total  |
+|----------|------------|--------|----------------|
+| Alice    | 2023-01-01 | 100    | 100            |
+| Alice    | 2023-01-02 | 200    | 300            |
+| Alice    | 2023-01-03 | 150    | 450            |
+
 Explanation:
 
 - SUM(amount) is the aggregate function.
