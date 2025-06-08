@@ -135,3 +135,72 @@ Common Window Functions:
 - `FIRST_VALUE()` – First value in the window
 - `LAST_VALUE()` – Last value in the window
 - `NTILE(n)` – Splits data into n equal groups (buckets)
+
+###  What is a CTE (Common Table Expression)? <a name="cte"></a>
+
+A **CTE** is a temporary named result set (similar to a temporary table) defined within a SQL query using the `WITH` clause. It improves query readability and helps organize complex queries by breaking them into simpler parts.
+
+**Use cases:**
+
+- Simplifying complex joins or subqueries
+- Writing recursive queries (e.g., hierarchical data)
+- Reusing the same result set multiple times within a query
+
+**Example:**
+
+```sql
+WITH Sales_CTE AS (
+  SELECT customer_id, SUM(amount) AS total_sales
+  FROM sales
+  GROUP BY customer_id
+)
+SELECT * FROM Sales_CTE
+WHERE total_sales > 1000;
+```
+
+###  What is a Window Function? How Does It Differ from Aggregate Functions?<a name="window-function-summary"></a>
+
+**Window functions** perform calculations across a set of rows related to the current row **without collapsing** the result set. They return a value **for each row**.
+
+**Aggregate functions** (like `SUM()`, `AVG()`) summarize data by **grouping** rows and return a **single result per group**.
+
+**Key Difference:**
+
+- **Aggregate functions**: Reduce rows (grouping)
+- **Window functions**: Keep rows intact, add calculated values (e.g., running totals, rankings)
+
+###  Explain EXISTS vs IN — When Is Each Better?<a name="exists-vs-in"></a>
+
+- **IN** checks if a value matches any value in a list or subquery results.
+    - Good for small lists or subqueries returning few values.
+    - Example:
+      ```sql
+      SELECT * FROM users WHERE id IN (1, 2, 3);
+      ```
+
+- **EXISTS** checks if a subquery returns any row (true/false). It stops processing once it finds the first match, making it efficient for correlated subqueries.
+    - Better when the subquery is correlated or large because it can short-circuit.
+    - Example:
+      ```sql
+      SELECT * FROM users u WHERE EXISTS (
+        SELECT 1 FROM orders o WHERE o.user_id = u.id
+      );
+      ```
+
+**Summary:**
+- Use **IN** when you have a fixed or small list of values.
+- Use **EXISTS** for subqueries that check for presence or in correlated queries for better performance.
+
+###  What is a Materialized View and How Is It Different from a Regular View? <a name="materialized-view"></a>
+
+- A **regular view** is a virtual table defined by a query; it doesn’t store data itself. When you query a view, the underlying SQL runs each time.
+- A **materialized view** stores the result set physically (like a cached table). It improves performance for complex or expensive queries by storing the computed data.
+- Materialized views need to be refreshed to update their data, either manually or on a schedule.
+
+**Summary:**
+
+| Aspect        | Regular View            | Materialized View          |
+|---------------|------------------------|---------------------------|
+| Data Storage  | No (virtual)           | Yes (stored)              |
+| Query Speed   | Slower (runs each time) | Faster (precomputed data) |
+| Maintenance   | Always up-to-date       | Needs refresh             |
