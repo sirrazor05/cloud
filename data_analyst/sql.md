@@ -47,3 +47,12 @@ Indexes speed up SELECT queries by allowing fast lookup of rows. But they slow d
 ```sql
 CREATE INDEX idx_user_email ON users(email);
 ```
+
+### What is Normalization? <a name="normalization"></a>
+
+Normalization is the process of organizing data in a database to:
+- Eliminate data redundancy
+- Ensure data integrity
+- Make updates/inserts/deletes more efficient and consistent
+
+It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in practice)
