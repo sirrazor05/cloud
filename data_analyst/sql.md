@@ -4,6 +4,40 @@
 - [What is the difference between WHERE and HAVING?](#where_having)
 - [How do you find duplicates in a table?](#duplicates)
 - [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
+- [What are indexes and why are they used?](#index)
+- [What is Normalization?](#normalization)
+- [What Is a Cumulative Sum in SQL?](#cumulativesum)
+- [What Are Window Functions in SQL?](#windowfunction)
+- [What is a CTE (Common Table Expression)?](#cte)
+- [What is a Window Function? How Does It Differ from Aggregate Functions?](#window-function-summary)
+- [Explain EXISTS vs IN — When Is Each Better?](#exists-vs-in)
+- [What is a Materialized View and How Is It Different from a Regular View?](#materialized-view)
+- [Explain ACID Properties in SQL Databases](#acid-properties)
+- [How Does Indexing Work Under the Hood?](#indexing)
+- [How Do You Handle Performance Optimization in SQL?](#performance-optimization)
+- [How Do You Implement and Optimize Time-Series Data Queries?](#time-series-queries)
+- [How Do You Implement Slowly Changing Dimensions (SCD) in SQL?](#scd-implementation)
+- [Explain Row-Level Security (RLS) in Modern SQL Databases](#row-level-security)
+- [How Do You Handle Data Versioning or Audit Trails in SQL?](#data-versioning)
+- [What Is the Difference Between Horizontal and Vertical Partitioning?](#partitioning)
+- [Explain the Difference Between DELETE, TRUNCATE, and DROP.](#delete-truncate-drop)
+- [What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?](#foreign-key)
+- [What Is a Surrogate Key vs Natural Key? When Would You Use Each?](#surrogate-vs-natural-key)
+- [How Do You Optimize Queries Involving Large JOIN Operations?](#join-optimization)
+- [What Are the Trade-offs Between Normalized and Denormalized Database Schemas?](#normalization-tradeoffs)
+- [What Are Common Causes of Slow Queries and How Do You Troubleshoot Them?](#slow-query-causes)
+- [Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each?](#clustered-vs-nonclustered)
+- [What Is the Difference Between a Database View and a Materialized View?](#view-vs-materialized-view)
+- [What Are Some Common Pitfalls with NULL Values in SQL?](#null-pitfalls)
+- [Explain the Concept of a Covering Index.](#covering-index)
+- [How Would You Optimize a Query That Has Multiple OR Conditions?](#or-condition-optimization)
+- [How Do You Implement Pagination in SQL Queries Efficiently?](#pagination)
+- [Scalar Function vs Table-Valued Function](#scalar-vs-table-func)
+- [Explain how transactions work in SQL. What commands are used?](#transactions)
+- [What is the difference between a primary key and a unique key?](#primary-vs-unique-key)
+- [SQL Triggers — Overview, Types, and Examples](#sql-triggers)
+- [Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key?](#primary-key-types)
+- [What is a CROSS JOIN?](#cross-join)
 
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
@@ -278,9 +312,7 @@ ACID is a set of properties that guarantee reliable processing of database trans
 - Downsample or aggregate data to reduce volume.
 - In cloud warehouses, leverage clustering or partition pruning.
 
-### How Do You Implement Slowly Changing Dimensions (SCD) in SQL?
-
-<a name="scd-implementation"></a>
+### How Do You Implement Slowly Changing Dimensions (SCD) in SQL?<a name="scd-implementation"></a>
 
 - **Type 1:** Overwrite old data.
 - **Type 2:** Add new rows with versioning or effective dates to keep history.
