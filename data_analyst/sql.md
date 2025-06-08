@@ -1,9 +1,9 @@
 # Table of Contents
 
-[What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?](#join)
-[What is the difference between WHERE and HAVING?](#where_having)
-[How do you find duplicates in a table?](#duplicates)
-[What is the difference between UNION and UNION ALL?](#union_vs_union_all)
+- [What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?](#join)
+- [What is the difference between WHERE and HAVING?](#where_having)
+- [How do you find duplicates in a table?](#duplicates)
+- [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
 
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
