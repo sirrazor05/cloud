@@ -204,3 +204,143 @@ WHERE total_sales > 1000;
 | Data Storage  | No (virtual)           | Yes (stored)              |
 | Query Speed   | Slower (runs each time) | Faster (precomputed data) |
 | Maintenance   | Always up-to-date       | Needs refresh             |
+
+### Explain ACID Properties in SQL Databases <a name="acid-properties"></a>
+
+ACID is a set of properties that guarantee reliable processing of database transactions:
+
+- **Atomicity:**  
+  A transaction is “all or nothing.” If any part fails, the entire transaction is rolled back.
+
+- **Consistency:**  
+  Transactions take the database from one valid state to another, maintaining all defined rules (constraints, triggers).
+
+- **Isolation:**  
+  Concurrent transactions don’t interfere. Intermediate states are hidden until a transaction completes.
+
+- **Durability:**  
+  Once a transaction commits, changes are permanent, even if the system crashes.
+
+### How Does Indexing Work Under the Hood? <a name="indexing"></a>
+
+- An **index** is a data structure (usually a B-tree or sometimes a hash) that the database uses to quickly locate rows without scanning the entire table.
+- It stores keys (indexed column values) along with pointers to the corresponding data rows.
+- When you run a query with a `WHERE` clause on an indexed column, the database uses the index to jump directly to matching rows, drastically reducing search time.
+- Indexes speed up read operations but can slow down write operations (`INSERT`, `UPDATE`, `DELETE`) because the index also needs updating.
+
+### How Do You Handle Performance Optimization in SQL?<a name="performance-optimization"></a>
+
+- **Use Indexes Wisely**
+    - Create indexes on columns used frequently in `WHERE`, `JOIN`, `ORDER BY`, and `GROUP BY` clauses.
+    - Avoid over-indexing since indexes slow down writes.
+
+- **Analyze Query Execution Plans**
+    - Use tools like `EXPLAIN` or `EXPLAIN ANALYZE` to understand how the database executes queries.
+    - Look for full table scans, missing indexes, or inefficient joins.
+
+- **Optimize Queries**
+    - Select only needed columns instead of `SELECT *`.
+    - Avoid unnecessary subqueries or complex joins.
+    - Use `JOIN` instead of subqueries when appropriate.
+    - Filter data early using `WHERE`.
+
+- **Use Appropriate Joins**
+    - Use the correct join types (`INNER`, `LEFT`, etc.) and join on indexed columns.
+
+- **Limit Dataset Size**
+    - Use `LIMIT` or pagination to avoid fetching large result sets unnecessarily.
+
+- **Consider Denormalization (When Needed)**
+    - For read-heavy workloads, sometimes duplicating data (denormalization) can speed up queries.
+
+- **Use Caching**
+    - Cache frequently accessed data at the application or database level.
+
+- **Partition Large Tables**
+    - Partitioning splits large tables into smaller chunks, improving query speed on subsets.
+
+- **Avoid Functions on Indexed Columns**
+    - Avoid wrapping indexed columns in functions in `WHERE` clauses, which prevents index use.
+
+- **Regular Maintenance**
+    - Run database maintenance tasks like `ANALYZE`, `VACUUM`, or rebuilding indexes to keep performance optimal.
+
+### How Do You Implement and Optimize Time-Series Data Queries?<a name="time-series-queries"></a>
+
+- Partition tables by time (e.g., by day, month).
+- Create indexes on timestamp columns.
+- Use window functions for running totals, moving averages.
+- Downsample or aggregate data to reduce volume.
+- In cloud warehouses, leverage clustering or partition pruning.
+
+### How Do You Implement Slowly Changing Dimensions (SCD) in SQL?
+
+<a name="scd-implementation"></a>
+
+- **Type 1:** Overwrite old data.
+- **Type 2:** Add new rows with versioning or effective dates to keep history.
+- **Type 3:** Add new columns to track previous values.
+
+**Example for Type 2:**  
+Add `start_date`, `end_date`, and `is_current` columns to track versions.
+
+```sql
+-- Sample structure for Type 2 SCD
+CREATE TABLE customer_scd (
+  customer_id INT,
+  name VARCHAR(100),
+  start_date DATE,
+  end_date DATE,
+  is_current BOOLEAN
+);
+
+-- Insert new version when data changes
+INSERT INTO customer_scd (customer_id, name, start_date, end_date, is_current)
+VALUES (1, 'Alice', CURRENT_DATE, NULL, TRUE);
+
+-- Update previous version's end_date and is_current
+UPDATE customer_scd
+SET end_date = CURRENT_DATE, is_current = FALSE
+WHERE customer_id = 1 AND is_current = TRUE;
+```
+
+### Explain Row-Level Security (RLS) in Modern SQL Databases<a name="row-level-security"></a>
+
+Row-Level Security (RLS) restricts access to rows based on user context or role by applying security policies at the database level. For example, PostgreSQL allows defining RLS policies so users can only see rows they own.
+
+###  How Do You Handle Data Versioning or Audit Trails in SQL? <a name="data-versioning"></a>
+
+- Use temporal tables or history tables to track changes.
+- Implement triggers to log changes to audit tables.
+- Use database features like system-versioned tables (SQL Server, Oracle).
+
+### What Is the Difference Between Horizontal and Vertical Partitioning? <a name="partitioning"></a>
+
+- **Horizontal partitioning:** Split rows into different tables/partitions based on a key (e.g., date ranges).
+- **Vertical partitioning:** Split columns into separate tables, useful when some columns are large or infrequently accessed.
+
+### Explain the Difference Between DELETE, TRUNCATE, and DROP.<a name="delete-truncate-drop"></a>
+
+- **DELETE:** Removes rows based on a condition; can be rolled back; slower due to logging.
+- **TRUNCATE:** Removes all rows quickly by deallocating pages; cannot use WHERE; minimal logging.
+- **DROP:** Deletes entire table schema and data.
+
+### What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?<a name="foreign-key"></a>
+
+A foreign key ensures that a value in one table matches a primary key in another, preventing invalid references and maintaining consistent relationships between tables.
+
+###  What Is a Surrogate Key vs Natural Key? When Would You Use Each?<a name="surrogate-vs-natural-key"></a>
+
+- **Natural key:** Uses real-world data (like email) as the primary key.
+- **Surrogate key:** Artificial key (e.g., auto-increment ID) with no business meaning.
+
+Surrogate keys are preferred for flexibility and stability.
+
+### How Do You Optimize Queries Involving Large JOIN Operations?<a name="join-optimization"></a>
+
+- Ensure join columns are indexed.
+- Use appropriate join types (`INNER` vs `LEFT`).
+- Filter rows before join when possible.
+- Avoid joining large datasets unnecessarily.
+- Analyze execution plans to identify bottlenecks.
+
