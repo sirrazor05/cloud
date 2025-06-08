@@ -34,3 +34,16 @@ FROM users
 GROUP BY name 
 HAVING COUNT(*) > 1;
 ```
+
+### What is the difference between UNION and UNION ALL? <a name="union_vs_union_all"></a>
+
+- **UNION**: removes duplicates
+- **UNION ALL**: includes all rows, including duplicates
+
+### What are indexes and why are they used? <a name="index"></a>
+
+Indexes speed up SELECT queries by allowing fast lookup of rows. But they slow down inserts/updates and use extra storage.
+
+```sql
+CREATE INDEX idx_user_email ON users(email);
+```
