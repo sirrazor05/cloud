@@ -7,8 +7,6 @@
 - **RIGHT JOIN**: all rows from the right + matched rows from the left
 - **FULL JOIN**: all rows from both tables (matched and unmatched)
 
-#### Syntax
-
 ```sql
 SELECT * FROM orders INNER JOIN customers ON orders.customer_id = customers.id;
 ```
@@ -17,8 +15,6 @@ SELECT * FROM orders INNER JOIN customers ON orders.customer_id = customers.id;
 
 - **WHERE**: filters rows before aggregation
 - **HAVING**: filters after aggregation (used with GROUP BY)
-
-#### Syntax
 
 ```sql
 -- WHERE
