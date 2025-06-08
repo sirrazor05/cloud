@@ -56,3 +56,11 @@ Normalization is the process of organizing data in a database to:
 - Make updates/inserts/deletes more efficient and consistent
 
 It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in practice)
+
+#### First Normal Form (1NF) <a name="1NF"></a>
+**Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
+#### Second Normal Form (2NF) <a name="2NF"></a>
+**Rule**: Must be in 1NF and have no partial dependencies.
+
+What is a Partial Dependency?
+- A partial dependency means a column depends on part of a composite primary key, not the whole key.
