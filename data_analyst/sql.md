@@ -79,9 +79,9 @@ This is done using the SUM() window function with OVER(ORDER BY ...).
 Example Table: sales
 ```sql
 id	customer	amount	sale_date
-1	Alice	100	2023-01-01
-2	Alice	200	2023-01-02
-3	Alice	150	2023-01-03
+1	Alice	    100	    2023-01-01
+2	Alice	    200	    2023-01-02
+3	Alice	    150	    2023-01-03
 ```
 SQL Query for Cumulative Sum:
 
