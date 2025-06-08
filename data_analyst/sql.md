@@ -108,3 +108,30 @@ Explanation:
 - OVER (...) turns it into a window function.
 - PARTITION BY customer resets the sum for each customer. 
 - ORDER BY sale_date ensures the sum adds up row-by-row in order.
+
+### What Are Window Functions in SQL? <a name="windowfunction"></a>
+
+Window functions perform calculations across a set of rows (the "window") that are related to the current row, without collapsing the result set like a GROUP BY does.
+
+They are essential for analytics, ranking, running totals, and comparisons within partitions of data.
+
+Syntax Overview
+```sql
+function_name(...) OVER (
+    [PARTITION BY column]
+    [ORDER BY column]
+    [ROWS or RANGE clause]
+)
+```
+
+You can use just OVER(), or add PARTITION BY and ORDER BY for more control.
+
+Common Window Functions:
+- `ROW_NUMBER()` – Assigns a unique row number per partition
+- `RANK()` – Ranks rows with gaps for ties
+- `DENSE_RANK()` – Like RANK() but no gaps
+- `LAG()` / `LEAD()` – Access previous/next row values
+- `SUM()`, `AVG()` – Running totals or averages
+- `FIRST_VALUE()` – First value in the window
+- `LAST_VALUE()` – Last value in the window
+- `NTILE(n)` – Splits data into n equal groups (buckets)
