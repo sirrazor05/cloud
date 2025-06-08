@@ -57,10 +57,52 @@ Normalization is the process of organizing data in a database to:
 
 It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in practice)
 
-#### First Normal Form (1NF) <a name="1NF"></a>
+#### First Normal Form (1NF)
 **Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
-#### Second Normal Form (2NF) <a name="2NF"></a>
+#### Second Normal Form (2NF)
 **Rule**: Must be in 1NF and have no partial dependencies.
 
 What is a Partial Dependency?
 - A partial dependency means a column depends on part of a composite primary key, not the whole key.
+#### Third Normal Form (3NF) <a name="2NF"></a>
+**Rule**: Must be in 2NF and have no transitive dependencies.
+
+What is a Transitive Dependency?
+- A transitive dependency means non-key columns depend on other non-key columns, not directly on the primary key.
+
+### What Is a Cumulative Sum in SQL? <a name="cumulativesum"></a>
+
+A cumulative sum (also called a running total) is a sum that grows row by row. For each row, it adds the current value to the sum of all previous values in a defined order.
+
+This is done using the SUM() window function with OVER(ORDER BY ...).
+
+Example Table: sales
+```sql
+id	customer	amount	sale_date
+1	Alice	100	2023-01-01
+2	Alice	200	2023-01-02
+3	Alice	150	2023-01-03
+```
+SQL Query for Cumulative Sum:
+
+```sql
+SELECT
+  customer,
+  sale_date,
+  amount,
+  SUM(amount) OVER (PARTITION BY customer ORDER BY sale_date) AS running_total
+FROM sales;
+```
+Result: 
+```sql
+customer	sale_date	amount	running_total
+Alice	2023-01-01	100	100
+Alice	2023-01-02	200	300
+Alice	2023-01-03	150	450
+```
+Explanation:
+
+- SUM(amount) is the aggregate function.
+- OVER (...) turns it into a window function.
+- PARTITION BY customer resets the sum for each customer. 
+- ORDER BY sale_date ensures the sum adds up row-by-row in order.
