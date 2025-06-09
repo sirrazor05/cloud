@@ -1,6 +1,9 @@
 # Table of Contents
 
 - [What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?](#join)
+- [What is a CROSS JOIN?](#cross-join)
+- [What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?](#foreign-key)
+- [What Is a Surrogate Key vs Natural Key? When Would You Use Each?](#surrogate-vs-natural-key)
 - [What is the difference between WHERE and HAVING?](#where_having)
 - [How do you find duplicates in a table?](#duplicates)
 - [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
@@ -21,8 +24,6 @@
 - [How Do You Handle Data Versioning or Audit Trails in SQL?](#data-versioning)
 - [What Is the Difference Between Horizontal and Vertical Partitioning?](#partitioning)
 - [Explain the Difference Between DELETE, TRUNCATE, and DROP.](#delete-truncate-drop)
-- [What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?](#foreign-key)
-- [What Is a Surrogate Key vs Natural Key? When Would You Use Each?](#surrogate-vs-natural-key)
 - [How Do You Optimize Queries Involving Large JOIN Operations?](#join-optimization)
 - [What Are the Trade-offs Between Normalized and Denormalized Database Schemas?](#normalization-tradeoffs)
 - [What Are Common Causes of Slow Queries and How Do You Troubleshoot Them?](#slow-query-causes)
@@ -37,7 +38,6 @@
 - [What is the difference between a primary key and a unique key?](#primary-vs-unique-key)
 - [SQL Triggers — Overview, Types, and Examples](#sql-triggers)
 - [Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key?](#primary-key-types)
-- [What is a CROSS JOIN?](#cross-join)
 
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
@@ -49,6 +49,24 @@
 ```sql
 SELECT * FROM orders INNER JOIN customers ON orders.customer_id = customers.id;
 ```
+
+### What is a CROSS JOIN? <a name="cross-join"></a>
+
+A CROSS JOIN returns the Cartesian product of two tables — meaning every row from the first table is combined with every row from the second.
+
+- If Table A has 3 rows and Table B has 4 rows, the result will have 3 × 4 = 12 rows.
+- It does not require any ON condition.
+
+### What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?<a name="foreign-key"></a>
+
+A foreign key ensures that a value in one table matches a primary key in another, preventing invalid references and maintaining consistent relationships between tables.
+
+###  What Is a Surrogate Key vs Natural Key? When Would You Use Each?<a name="surrogate-vs-natural-key"></a>
+
+- **Natural key:** Uses real-world data (like email) as the primary key.
+- **Surrogate key:** Artificial key (e.g., auto-increment ID) with no business meaning.
+
+Surrogate keys are preferred for flexibility and stability.
 
 ### What is the difference between WHERE and HAVING? <a name="where_having"></a>
 
@@ -362,17 +380,6 @@ Row-Level Security (RLS) restricts access to rows based on user context or role 
 - **TRUNCATE:** Removes all rows quickly by deallocating pages; cannot use WHERE; minimal logging.
 - **DROP:** Deletes entire table schema and data.
 
-### What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?<a name="foreign-key"></a>
-
-A foreign key ensures that a value in one table matches a primary key in another, preventing invalid references and maintaining consistent relationships between tables.
-
-###  What Is a Surrogate Key vs Natural Key? When Would You Use Each?<a name="surrogate-vs-natural-key"></a>
-
-- **Natural key:** Uses real-world data (like email) as the primary key.
-- **Surrogate key:** Artificial key (e.g., auto-increment ID) with no business meaning.
-
-Surrogate keys are preferred for flexibility and stability.
-
 ### How Do You Optimize Queries Involving Large JOIN Operations?<a name="join-optimization"></a>
 
 - Ensure join columns are indexed.
@@ -517,9 +524,3 @@ It shows how SQL engine executes a query—e.g., join types, scan types, index u
 - When the combination of two or more columns uniquely identifies a row.
 - Often in many-to-many or versioning tables.
 
-### What is a CROSS JOIN? <a name="cross-join"></a>
-
-A CROSS JOIN returns the Cartesian product of two tables — meaning every row from the first table is combined with every row from the second.
-
-- If Table A has 3 rows and Table B has 4 rows, the result will have 3 × 4 = 12 rows.
-- It does not require any ON condition.
