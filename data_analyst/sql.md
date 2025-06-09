@@ -104,6 +104,10 @@ It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in pra
 
 Indexes speed up SELECT queries by allowing fast lookup of rows. But they slow down inserts/updates and use extra storage.
 
+```sql
+CREATE INDEX idx_user_email ON users(email);
+```
+
 ### Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each? <a name="clustered-vs-nonclustered"></a>
 
 - **Clustered Index:** The table’s data is physically sorted according to this index (one per table). Efficient for range queries.
@@ -141,10 +145,6 @@ HAVING COUNT(*) > 10;
 
 - **UNION**: removes duplicates
 - **UNION ALL**: includes all rows, including duplicates
-
-```sql
-CREATE INDEX idx_user_email ON users(email);
-```
 
 ### How do you find duplicates in a table? <a name="duplicates"></a>
 
