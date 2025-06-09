@@ -21,25 +21,24 @@
 - [What Are Window Functions in SQL?](#windowfunction)
 - [What is a Window Function? How Does It Differ from Aggregate Functions?](#window-function-summary)
 - [What is a CTE (Common Table Expression)?](#cte)
-- [How do you find duplicates in a table?](#duplicates)
-- [What is a Materialized View and How Is It Different from a Regular View?](#materialized-view)
 - [Explain ACID Properties in SQL Databases](#acid-properties)
+- [SQL Triggers — Overview, Types, and Examples](#sql-triggers)
+- [What Is the Difference Between Horizontal and Vertical Partitioning?](#partitioning)
+- [What Is the Difference Between a Database View and a Materialized View?](#view-vs-materialized-view)
+- [Scalar Function vs Table-Valued Function](#scalar-vs-table-func)
+- [Explain how transactions work in SQL. What commands are used?](#transactions)
+- [What is a Materialized View and How Is It Different from a Regular View?](#materialized-view)
+- [Explain Row-Level Security (RLS) in Modern SQL Databases](#row-level-security)
+- [How do you find duplicates in a table?](#duplicates)
 - [How Do You Handle Performance Optimization in SQL?](#performance-optimization)
 - [How Do You Implement and Optimize Time-Series Data Queries?](#time-series-queries)
 - [How Do You Implement Slowly Changing Dimensions (SCD) in SQL?](#scd-implementation)
-- [Explain Row-Level Security (RLS) in Modern SQL Databases](#row-level-security)
 - [How Do You Handle Data Versioning or Audit Trails in SQL?](#data-versioning)
-- [What Is the Difference Between Horizontal and Vertical Partitioning?](#partitioning)
 - [How Do You Optimize Queries Involving Large JOIN Operations?](#join-optimization)
 - [What Are Common Causes of Slow Queries and How Do You Troubleshoot Them?](#slow-query-causes)
-- [What Is the Difference Between a Database View and a Materialized View?](#view-vs-materialized-view)
 - [What Are Some Common Pitfalls with NULL Values in SQL?](#null-pitfalls)
 - [How Would You Optimize a Query That Has Multiple OR Conditions?](#or-condition-optimization)
 - [How Do You Implement Pagination in SQL Queries Efficiently?](#pagination)
-- [Scalar Function vs Table-Valued Function](#scalar-vs-table-func)
-- [Explain how transactions work in SQL. What commands are used?](#transactions)
-- [SQL Triggers — Overview, Types, and Examples](#sql-triggers)
-
 
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
@@ -272,6 +271,105 @@ WITH Sales_CTE AS (
 SELECT * FROM Sales_CTE
 WHERE total_sales > 1000;
 ```
+### Explain ACID Properties in SQL Databases <a name="acid-properties"></a>
+
+ACID is a set of properties that guarantee reliable processing of database transactions:
+
+- **Atomicity:**  
+  A transaction is “all or nothing.” If any part fails, the entire transaction is rolled back.
+
+- **Consistency:**  
+  Transactions take the database from one valid state to another, maintaining all defined rules (constraints, triggers).
+
+- **Isolation:**  
+  Concurrent transactions don’t interfere. Intermediate states are hidden until a transaction completes.
+
+- **Durability:**  
+  Once a transaction commits, changes are permanent, even if the system crashes.
+
+### SQL Triggers — Overview, Types, and Examples<a name="sql-triggers"></a>
+
+🔹 What is a Trigger in SQL?
+
+A trigger is a special stored procedure that automatically runs when certain events occur in a database, like:
+
+- INSERT
+- UPDATE
+- DELETE
+
+It’s attached to a table or view, and is typically used to enforce business rules, audit changes, or maintain integrity.
+
+🔹 Types of Triggers
+
+- BEFORE Trigger: Fires before the operation is executed. Often used to validate or modify input.
+- AFTER Trigger: Fires after the operation is completed. Useful for auditing or logging.
+- INSTEAD OF Trigger (mostly for views): Replaces the operation with custom logic.
+
+🔹 Trigger Events
+
+You can define triggers for:
+
+- BEFORE INSERT
+- AFTER INSERT
+- BEFORE UPDATE
+- AFTER UPDATE
+- BEFORE DELETE
+- AFTER DELETE
+
+When to Use Triggers
+
+✅ Use for:
+
+- Auditing (e.g., logging changes)
+- Enforcing complex validation rules
+- Syncing derived tables
+
+🚫 Avoid when:
+
+- Logic gets too complex (can hurt readability and debugging)
+- Performance matters (triggers add overhead)
+
+### What Is the Difference Between Horizontal and Vertical Partitioning? <a name="partitioning"></a>
+
+- **Horizontal partitioning:** Split rows into different tables/partitions based on a key (e.g., date ranges).
+- **Vertical partitioning:** Split columns into separate tables, useful when some columns are large or infrequently accessed.
+
+### What Is the Difference Between a Database View and a Materialized View?<a name="view-vs-materialized-view"></a>
+
+- **View:** A virtual table based on a query. Data is not stored, calculated on access.
+- **Materialized view:** Stores the result physically. Faster reads but needs refresh to stay current.
+
+### Scalar Function vs Table-Valued Function <a name="scalar-vs-table-func"></a>
+
+- **Scalar function:** Returns a single value.
+- **Table-valued function:** Returns a table (result set) that can be queried like a regular table.
+
+### Explain how transactions work in SQL. What commands are used?<a name="transactions"></a>
+
+Transactions group SQL statements into a single unit of work. Commands:
+
+- BEGIN or START TRANSACTION to start.
+- COMMIT to save changes.
+- ROLLBACK to undo changes.
+
+###  What is a Materialized View and How Is It Different from a Regular View? <a name="materialized-view"></a>
+
+- A **regular view** is a virtual table defined by a query; it doesn’t store data itself. When you query a view, the underlying SQL runs each time.
+- A **materialized view** stores the result set physically (like a cached table). It improves performance for complex or expensive queries by storing the computed data.
+- Materialized views need to be refreshed to update their data, either manually or on a schedule.
+
+**Summary:**
+
+| Aspect        | Regular View            | Materialized View          |
+|---------------|------------------------|---------------------------|
+| Data Storage  | No (virtual)           | Yes (stored)              |
+| Query Speed   | Slower (runs each time) | Faster (precomputed data) |
+| Maintenance   | Always up-to-date       | Needs refresh             |
+
+### Explain Row-Level Security (RLS) in Modern SQL Databases<a name="row-level-security"></a>
+
+Row-Level Security (RLS) restricts access to rows based on user context or role by applying security policies at the database level. For example, PostgreSQL allows defining RLS policies so users can only see rows they own.
+
 
 ### How do you find duplicates in a table? <a name="duplicates"></a>
 
@@ -295,36 +393,6 @@ What is a Partial Dependency?
 What is a Transitive Dependency?
 - A transitive dependency means non-key columns depend on other non-key columns, not directly on the primary key.
 
-
-###  What is a Materialized View and How Is It Different from a Regular View? <a name="materialized-view"></a>
-
-- A **regular view** is a virtual table defined by a query; it doesn’t store data itself. When you query a view, the underlying SQL runs each time.
-- A **materialized view** stores the result set physically (like a cached table). It improves performance for complex or expensive queries by storing the computed data.
-- Materialized views need to be refreshed to update their data, either manually or on a schedule.
-
-**Summary:**
-
-| Aspect        | Regular View            | Materialized View          |
-|---------------|------------------------|---------------------------|
-| Data Storage  | No (virtual)           | Yes (stored)              |
-| Query Speed   | Slower (runs each time) | Faster (precomputed data) |
-| Maintenance   | Always up-to-date       | Needs refresh             |
-
-### Explain ACID Properties in SQL Databases <a name="acid-properties"></a>
-
-ACID is a set of properties that guarantee reliable processing of database transactions:
-
-- **Atomicity:**  
-  A transaction is “all or nothing.” If any part fails, the entire transaction is rolled back.
-
-- **Consistency:**  
-  Transactions take the database from one valid state to another, maintaining all defined rules (constraints, triggers).
-
-- **Isolation:**  
-  Concurrent transactions don’t interfere. Intermediate states are hidden until a transaction completes.
-
-- **Durability:**  
-  Once a transaction commits, changes are permanent, even if the system crashes.
 
 ### How Do You Handle Performance Optimization in SQL?<a name="performance-optimization"></a>
 
@@ -400,20 +468,11 @@ SET end_date = CURRENT_DATE, is_current = FALSE
 WHERE customer_id = 1 AND is_current = TRUE;
 ```
 
-### Explain Row-Level Security (RLS) in Modern SQL Databases<a name="row-level-security"></a>
-
-Row-Level Security (RLS) restricts access to rows based on user context or role by applying security policies at the database level. For example, PostgreSQL allows defining RLS policies so users can only see rows they own.
-
 ###  How Do You Handle Data Versioning or Audit Trails in SQL? <a name="data-versioning"></a>
 
 - Use temporal tables or history tables to track changes.
 - Implement triggers to log changes to audit tables.
 - Use database features like system-versioned tables (SQL Server, Oracle).
-
-### What Is the Difference Between Horizontal and Vertical Partitioning? <a name="partitioning"></a>
-
-- **Horizontal partitioning:** Split rows into different tables/partitions based on a key (e.g., date ranges).
-- **Vertical partitioning:** Split columns into separate tables, useful when some columns are large or infrequently accessed.
 
 ### How Do You Optimize Queries Involving Large JOIN Operations?<a name="join-optimization"></a>
 
@@ -432,11 +491,6 @@ Row-Level Security (RLS) restricts access to rows based on user context or role 
 - Network latency.
 
 Use profiling tools, logs, and execution plans to diagnose.
-
-### What Is the Difference Between a Database View and a Materialized View?<a name="view-vs-materialized-view"></a>
-
-- **View:** A virtual table based on a query. Data is not stored, calculated on access.
-- **Materialized view:** Stores the result physically. Faster reads but needs refresh to stay current.
 
 ### What Are Some Common Pitfalls with NULL Values in SQL?<a name="null-pitfalls"></a>
 
@@ -462,61 +516,6 @@ WITH Ordered AS (
 )
 SELECT * FROM Ordered WHERE rn BETWEEN 11 AND 20;
 ```
-
-### Scalar Function vs Table-Valued Function <a name="scalar-vs-table-func"></a>
-
-- **Scalar function:** Returns a single value.
-- **Table-valued function:** Returns a table (result set) that can be queried like a regular table.
-
-### Explain how transactions work in SQL. What commands are used?<a name="transactions"></a>
-
-Transactions group SQL statements into a single unit of work. Commands:
-
-- BEGIN or START TRANSACTION to start.
-- COMMIT to save changes.
-- ROLLBACK to undo changes.
-
-### SQL Triggers — Overview, Types, and Examples<a name="sql-triggers"></a>
-
-🔹 What is a Trigger in SQL?
-
-A trigger is a special stored procedure that automatically runs when certain events occur in a database, like:
-
-- INSERT
-- UPDATE
-- DELETE
-
-It’s attached to a table or view, and is typically used to enforce business rules, audit changes, or maintain integrity.
-
-🔹 Types of Triggers
-
-- BEFORE Trigger: Fires before the operation is executed. Often used to validate or modify input.
-- AFTER Trigger: Fires after the operation is completed. Useful for auditing or logging.
-- INSTEAD OF Trigger (mostly for views): Replaces the operation with custom logic.
-
-🔹 Trigger Events
-
-You can define triggers for:
-
-- BEFORE INSERT
-- AFTER INSERT
-- BEFORE UPDATE
-- AFTER UPDATE
-- BEFORE DELETE
-- AFTER DELETE
-
-When to Use Triggers
-
-✅ Use for:
-
-- Auditing (e.g., logging changes)
-- Enforcing complex validation rules
-- Syncing derived tables
-
-🚫 Avoid when:
-
-- Logic gets too complex (can hurt readability and debugging)
-- Performance matters (triggers add overhead)
 
 ###  What is a query execution plan? <a name="query-execution-plan"></a>
 
