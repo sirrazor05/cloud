@@ -14,6 +14,7 @@
 - [How Does Indexing Work Under the Hood?](#indexing)
 - [Explain the Concept of a Covering Index.](#covering-index)
 - [What is the difference between WHERE and HAVING?](#where_having)
+- [PARTITION BY vs GROUP BY](#partition-vs-group)
 - [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
 - [Explain the Difference Between DELETE, TRUNCATE, and DROP.](#delete-truncate-drop)
 - [Explain EXISTS vs IN — When Is Each Better?](#exists-vs-in)
@@ -39,6 +40,7 @@
 - [What Are Some Common Pitfalls with NULL Values in SQL?](#null-pitfalls)
 - [How Would You Optimize a Query That Has Multiple OR Conditions?](#or-condition-optimization)
 - [How Do You Implement Pagination in SQL Queries Efficiently?](#pagination)
+- [What is a query execution plan?](#query-execution-plan)
 
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
@@ -140,6 +142,12 @@ FROM employees
 GROUP BY department 
 HAVING COUNT(*) > 10;
 ```
+
+###  PARTITION BY vs GROUP BY <a name="partition-vs-group"></a>
+
+- GROUP BY reduces rows.
+- PARTITION BY retains rows but groups them logically for window functions.
+
 ### What is the difference between UNION and UNION ALL? <a name="union_vs_union_all"></a>
 
 - **UNION**: removes duplicates
@@ -521,8 +529,5 @@ SELECT * FROM Ordered WHERE rn BETWEEN 11 AND 20;
 
 It shows how SQL engine executes a query—e.g., join types, scan types, index usage. Use it to identify performance bottlenecks.
 
-###  PARTITION BY vs GROUP BY <a name="partition-vs-group"></a>
 
-- GROUP BY reduces rows.
-- PARTITION BY retains rows but groups them logically for window functions.
 
