@@ -96,6 +96,19 @@ Normalization is the process of organizing data in a database to:
 
 It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in practice)
 
+#### First Normal Form (1NF)
+**Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
+#### Second Normal Form (2NF)
+**Rule**: Must be in 1NF and have no partial dependencies.
+
+What is a Partial Dependency?
+- A partial dependency means a column depends on part of a composite primary key, not the whole key.
+#### Third Normal Form (3NF) <a name="2NF"></a>
+**Rule**: Must be in 2NF and have no transitive dependencies.
+
+What is a Transitive Dependency?
+- A transitive dependency means non-key columns depend on other non-key columns, not directly on the primary key.
+
 ###  What Are the Trade-offs Between Normalized and Denormalized Database Schemas? <a name="normalization-tradeoffs"></a>
 
 - **Normalized:** Reduces redundancy, easier to maintain, but may require complex joins.
@@ -387,20 +400,6 @@ FROM users
 GROUP BY name 
 HAVING COUNT(*) > 1;
 ```
-
-#### First Normal Form (1NF)
-**Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
-#### Second Normal Form (2NF)
-**Rule**: Must be in 1NF and have no partial dependencies.
-
-What is a Partial Dependency?
-- A partial dependency means a column depends on part of a composite primary key, not the whole key.
-#### Third Normal Form (3NF) <a name="2NF"></a>
-**Rule**: Must be in 2NF and have no transitive dependencies.
-
-What is a Transitive Dependency?
-- A transitive dependency means non-key columns depend on other non-key columns, not directly on the primary key.
-
 
 ### How Do You Handle Performance Optimization in SQL?<a name="performance-optimization"></a>
 
