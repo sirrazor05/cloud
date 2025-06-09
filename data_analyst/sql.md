@@ -15,12 +15,13 @@
 - [Explain the Concept of a Covering Index.](#covering-index)
 - [What is the difference between WHERE and HAVING?](#where_having)
 - [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
-- [How do you find duplicates in a table?](#duplicates)
+- [Explain the Difference Between DELETE, TRUNCATE, and DROP.](#delete-truncate-drop)
+- [Explain EXISTS vs IN — When Is Each Better?](#exists-vs-in)
 - [What Is a Cumulative Sum in SQL?](#cumulativesum)
 - [What Are Window Functions in SQL?](#windowfunction)
-- [What is a CTE (Common Table Expression)?](#cte)
 - [What is a Window Function? How Does It Differ from Aggregate Functions?](#window-function-summary)
-- [Explain EXISTS vs IN — When Is Each Better?](#exists-vs-in)
+- [What is a CTE (Common Table Expression)?](#cte)
+- [How do you find duplicates in a table?](#duplicates)
 - [What is a Materialized View and How Is It Different from a Regular View?](#materialized-view)
 - [Explain ACID Properties in SQL Databases](#acid-properties)
 - [How Do You Handle Performance Optimization in SQL?](#performance-optimization)
@@ -29,7 +30,6 @@
 - [Explain Row-Level Security (RLS) in Modern SQL Databases](#row-level-security)
 - [How Do You Handle Data Versioning or Audit Trails in SQL?](#data-versioning)
 - [What Is the Difference Between Horizontal and Vertical Partitioning?](#partitioning)
-- [Explain the Difference Between DELETE, TRUNCATE, and DROP.](#delete-truncate-drop)
 - [How Do You Optimize Queries Involving Large JOIN Operations?](#join-optimization)
 - [What Are Common Causes of Slow Queries and How Do You Troubleshoot Them?](#slow-query-causes)
 - [What Is the Difference Between a Database View and a Materialized View?](#view-vs-materialized-view)
@@ -146,27 +146,33 @@ HAVING COUNT(*) > 10;
 - **UNION**: removes duplicates
 - **UNION ALL**: includes all rows, including duplicates
 
-### How do you find duplicates in a table? <a name="duplicates"></a>
+### Explain the Difference Between DELETE, TRUNCATE, and DROP.<a name="delete-truncate-drop"></a>
 
-```sql
-SELECT name, COUNT(*) 
-FROM users 
-GROUP BY name 
-HAVING COUNT(*) > 1;
-```
+- **DELETE:** Removes rows based on a condition; can be rolled back; slower due to logging.
+- **TRUNCATE:** Removes all rows quickly by deallocating pages; cannot use WHERE; minimal logging.
+- **DROP:** Deletes entire table schema and data.
 
-#### First Normal Form (1NF)
-**Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
-#### Second Normal Form (2NF)
-**Rule**: Must be in 1NF and have no partial dependencies.
+###  Explain EXISTS vs IN — When Is Each Better?<a name="exists-vs-in"></a>
 
-What is a Partial Dependency?
-- A partial dependency means a column depends on part of a composite primary key, not the whole key.
-#### Third Normal Form (3NF) <a name="2NF"></a>
-**Rule**: Must be in 2NF and have no transitive dependencies.
+- **IN** checks if a value matches any value in a list or subquery results.
+  - Good for small lists or subqueries returning few values.
+  - Example:
+    ```sql
+    SELECT * FROM users WHERE id IN (1, 2, 3);
+    ```
 
-What is a Transitive Dependency?
-- A transitive dependency means non-key columns depend on other non-key columns, not directly on the primary key.
+- **EXISTS** checks if a subquery returns any row (true/false). It stops processing once it finds the first match, making it efficient for correlated subqueries.
+  - Better when the subquery is correlated or large because it can short-circuit.
+  - Example:
+    ```sql
+    SELECT * FROM users u WHERE EXISTS (
+      SELECT 1 FROM orders o WHERE o.user_id = u.id
+    );
+    ```
+
+**Summary:**
+- Use **IN** when you have a fixed or small list of values.
+- Use **EXISTS** for subqueries that check for presence or in correlated queries for better performance.
 
 ### What Is a Cumulative Sum in SQL? <a name="cumulativesum"></a>
 
@@ -204,7 +210,7 @@ Explanation:
 
 - SUM(amount) is the aggregate function.
 - OVER (...) turns it into a window function.
-- PARTITION BY customer resets the sum for each customer. 
+- PARTITION BY customer resets the sum for each customer.
 - ORDER BY sale_date ensures the sum adds up row-by-row in order.
 
 ### What Are Window Functions in SQL? <a name="windowfunction"></a>
@@ -234,6 +240,17 @@ Common Window Functions:
 - `LAST_VALUE()` – Last value in the window
 - `NTILE(n)` – Splits data into n equal groups (buckets)
 
+###  What is a Window Function? How Does It Differ from Aggregate Functions?<a name="window-function-summary"></a>
+
+**Window functions** perform calculations across a set of rows related to the current row **without collapsing** the result set. They return a value **for each row**.
+
+**Aggregate functions** (like `SUM()`, `AVG()`) summarize data by **grouping** rows and return a **single result per group**.
+
+**Key Difference:**
+
+- **Aggregate functions**: Reduce rows (grouping)
+- **Window functions**: Keep rows intact, add calculated values (e.g., running totals, rankings)
+
 ###  What is a CTE (Common Table Expression)? <a name="cte"></a>
 
 A **CTE** is a temporary named result set (similar to a temporary table) defined within a SQL query using the `WITH` clause. It improves query readability and helps organize complex queries by breaking them into simpler parts.
@@ -256,38 +273,28 @@ SELECT * FROM Sales_CTE
 WHERE total_sales > 1000;
 ```
 
-###  What is a Window Function? How Does It Differ from Aggregate Functions?<a name="window-function-summary"></a>
+### How do you find duplicates in a table? <a name="duplicates"></a>
 
-**Window functions** perform calculations across a set of rows related to the current row **without collapsing** the result set. They return a value **for each row**.
+```sql
+SELECT name, COUNT(*) 
+FROM users 
+GROUP BY name 
+HAVING COUNT(*) > 1;
+```
 
-**Aggregate functions** (like `SUM()`, `AVG()`) summarize data by **grouping** rows and return a **single result per group**.
+#### First Normal Form (1NF)
+**Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
+#### Second Normal Form (2NF)
+**Rule**: Must be in 1NF and have no partial dependencies.
 
-**Key Difference:**
+What is a Partial Dependency?
+- A partial dependency means a column depends on part of a composite primary key, not the whole key.
+#### Third Normal Form (3NF) <a name="2NF"></a>
+**Rule**: Must be in 2NF and have no transitive dependencies.
 
-- **Aggregate functions**: Reduce rows (grouping)
-- **Window functions**: Keep rows intact, add calculated values (e.g., running totals, rankings)
+What is a Transitive Dependency?
+- A transitive dependency means non-key columns depend on other non-key columns, not directly on the primary key.
 
-###  Explain EXISTS vs IN — When Is Each Better?<a name="exists-vs-in"></a>
-
-- **IN** checks if a value matches any value in a list or subquery results.
-    - Good for small lists or subqueries returning few values.
-    - Example:
-      ```sql
-      SELECT * FROM users WHERE id IN (1, 2, 3);
-      ```
-
-- **EXISTS** checks if a subquery returns any row (true/false). It stops processing once it finds the first match, making it efficient for correlated subqueries.
-    - Better when the subquery is correlated or large because it can short-circuit.
-    - Example:
-      ```sql
-      SELECT * FROM users u WHERE EXISTS (
-        SELECT 1 FROM orders o WHERE o.user_id = u.id
-      );
-      ```
-
-**Summary:**
-- Use **IN** when you have a fixed or small list of values.
-- Use **EXISTS** for subqueries that check for presence or in correlated queries for better performance.
 
 ###  What is a Materialized View and How Is It Different from a Regular View? <a name="materialized-view"></a>
 
@@ -407,12 +414,6 @@ Row-Level Security (RLS) restricts access to rows based on user context or role 
 
 - **Horizontal partitioning:** Split rows into different tables/partitions based on a key (e.g., date ranges).
 - **Vertical partitioning:** Split columns into separate tables, useful when some columns are large or infrequently accessed.
-
-### Explain the Difference Between DELETE, TRUNCATE, and DROP.<a name="delete-truncate-drop"></a>
-
-- **DELETE:** Removes rows based on a condition; can be rolled back; slower due to logging.
-- **TRUNCATE:** Removes all rows quickly by deallocating pages; cannot use WHERE; minimal logging.
-- **DROP:** Deletes entire table schema and data.
 
 ### How Do You Optimize Queries Involving Large JOIN Operations?<a name="join-optimization"></a>
 
