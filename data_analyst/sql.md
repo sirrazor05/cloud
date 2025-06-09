@@ -4,11 +4,18 @@
 - [What is a CROSS JOIN?](#cross-join)
 - [What Is a Foreign Key Constraint and How Does It Ensure Referential Integrity?](#foreign-key)
 - [What Is a Surrogate Key vs Natural Key? When Would You Use Each?](#surrogate-vs-natural-key)
-- [What is the difference between WHERE and HAVING?](#where_having)
-- [How do you find duplicates in a table?](#duplicates)
-- [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
-- [What are indexes and why are they used?](#index)
+- [What is the difference between a primary key and a unique key?](#primary-vs-unique-key)
+- [Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key?](#primary-key-types)
+- [When to use composite primary keys?](#composite-primary-keys)
 - [What is Normalization?](#normalization)
+- [What Are the Trade-offs Between Normalized and Denormalized Database Schemas?](#normalization-tradeoffs)
+- [What are indexes and why are they used?](#index)
+- [Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each?](#clustered-vs-nonclustered)
+- [How Does Indexing Work Under the Hood?](#indexing)
+- [Explain the Concept of a Covering Index.](#covering-index)
+- [What is the difference between WHERE and HAVING?](#where_having)
+- [What is the difference between UNION and UNION ALL?](#union_vs_union_all)
+- [How do you find duplicates in a table?](#duplicates)
 - [What Is a Cumulative Sum in SQL?](#cumulativesum)
 - [What Are Window Functions in SQL?](#windowfunction)
 - [What is a CTE (Common Table Expression)?](#cte)
@@ -16,7 +23,6 @@
 - [Explain EXISTS vs IN — When Is Each Better?](#exists-vs-in)
 - [What is a Materialized View and How Is It Different from a Regular View?](#materialized-view)
 - [Explain ACID Properties in SQL Databases](#acid-properties)
-- [How Does Indexing Work Under the Hood?](#indexing)
 - [How Do You Handle Performance Optimization in SQL?](#performance-optimization)
 - [How Do You Implement and Optimize Time-Series Data Queries?](#time-series-queries)
 - [How Do You Implement Slowly Changing Dimensions (SCD) in SQL?](#scd-implementation)
@@ -25,19 +31,15 @@
 - [What Is the Difference Between Horizontal and Vertical Partitioning?](#partitioning)
 - [Explain the Difference Between DELETE, TRUNCATE, and DROP.](#delete-truncate-drop)
 - [How Do You Optimize Queries Involving Large JOIN Operations?](#join-optimization)
-- [What Are the Trade-offs Between Normalized and Denormalized Database Schemas?](#normalization-tradeoffs)
 - [What Are Common Causes of Slow Queries and How Do You Troubleshoot Them?](#slow-query-causes)
-- [Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each?](#clustered-vs-nonclustered)
 - [What Is the Difference Between a Database View and a Materialized View?](#view-vs-materialized-view)
 - [What Are Some Common Pitfalls with NULL Values in SQL?](#null-pitfalls)
-- [Explain the Concept of a Covering Index.](#covering-index)
 - [How Would You Optimize a Query That Has Multiple OR Conditions?](#or-condition-optimization)
 - [How Do You Implement Pagination in SQL Queries Efficiently?](#pagination)
 - [Scalar Function vs Table-Valued Function](#scalar-vs-table-func)
 - [Explain how transactions work in SQL. What commands are used?](#transactions)
-- [What is the difference between a primary key and a unique key?](#primary-vs-unique-key)
 - [SQL Triggers — Overview, Types, and Examples](#sql-triggers)
-- [Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key?](#primary-key-types)
+
 
 ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN? <a name="join"></a>
 
@@ -68,6 +70,58 @@ A foreign key ensures that a value in one table matches a primary key in another
 
 Surrogate keys are preferred for flexibility and stability.
 
+### What is the difference between a primary key and a unique key? <a name="primary-vs-unique-key"></a>
+
+- Primary key: Uniquely identifies each row; cannot be NULL; one per table.
+- Unique key: Ensures uniqueness of values but can allow one NULL (depending on DB).
+
+### Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key? <a name="primary-key-types"></a>
+
+- INT: Small tables
+- BIGINT: Large tables
+- UUID: Decentralized inserts (e.g., distributed systems)
+
+### When to use composite primary keys? <a name="composite-primary-keys"></a>
+
+- When the combination of two or more columns uniquely identifies a row.
+- Often in many-to-many or versioning tables.
+
+### What is Normalization? <a name="normalization"></a>
+
+Normalization is the process of organizing data in a database to:
+- Eliminate data redundancy
+- Ensure data integrity
+- Make updates/inserts/deletes more efficient and consistent
+
+It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in practice)
+
+###  What Are the Trade-offs Between Normalized and Denormalized Database Schemas? <a name="normalization-tradeoffs"></a>
+
+- **Normalized:** Reduces redundancy, easier to maintain, but may require complex joins.
+- **Denormalized:** Improves read performance and simplicity but increases redundancy and update anomalies.
+
+### What are indexes and why are they used? <a name="index"></a>
+
+Indexes speed up SELECT queries by allowing fast lookup of rows. But they slow down inserts/updates and use extra storage.
+
+### Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each? <a name="clustered-vs-nonclustered"></a>
+
+- **Clustered Index:** The table’s data is physically sorted according to this index (one per table). Efficient for range queries.
+- **Non-clustered Index:** Separate structure pointing to data rows. Multiple non-clustered indexes can exist per table. Good for quick lookups on columns.
+
+Use clustered for primary keys or frequently range-queried columns, non-clustered for others.
+
+### How Does Indexing Work Under the Hood? <a name="indexing"></a>
+
+- An **index** is a data structure (usually a B-tree or sometimes a hash) that the database uses to quickly locate rows without scanning the entire table.
+- It stores keys (indexed column values) along with pointers to the corresponding data rows.
+- When you run a query with a `WHERE` clause on an indexed column, the database uses the index to jump directly to matching rows, drastically reducing search time.
+- Indexes speed up read operations but can slow down write operations (`INSERT`, `UPDATE`, `DELETE`) because the index also needs updating.
+
+### Explain the Concept of a Covering Index. <a name="covering-index"></a>
+
+An index that contains all the columns a query needs, so the database can fulfill the query using only the index without accessing the table data.
+
 ### What is the difference between WHERE and HAVING? <a name="where_having"></a>
 
 - **WHERE**: filters rows before aggregation
@@ -83,6 +137,15 @@ FROM employees
 GROUP BY department 
 HAVING COUNT(*) > 10;
 ```
+### What is the difference between UNION and UNION ALL? <a name="union_vs_union_all"></a>
+
+- **UNION**: removes duplicates
+- **UNION ALL**: includes all rows, including duplicates
+
+```sql
+CREATE INDEX idx_user_email ON users(email);
+```
+
 ### How do you find duplicates in a table? <a name="duplicates"></a>
 
 ```sql
@@ -91,28 +154,6 @@ FROM users
 GROUP BY name 
 HAVING COUNT(*) > 1;
 ```
-
-### What is the difference between UNION and UNION ALL? <a name="union_vs_union_all"></a>
-
-- **UNION**: removes duplicates
-- **UNION ALL**: includes all rows, including duplicates
-
-### What are indexes and why are they used? <a name="index"></a>
-
-Indexes speed up SELECT queries by allowing fast lookup of rows. But they slow down inserts/updates and use extra storage.
-
-```sql
-CREATE INDEX idx_user_email ON users(email);
-```
-
-### What is Normalization? <a name="normalization"></a>
-
-Normalization is the process of organizing data in a database to:
-- Eliminate data redundancy
-- Ensure data integrity
-- Make updates/inserts/deletes more efficient and consistent
-
-It's done in stages called normal forms: 1NF → 2NF → 3NF (most common in practice)
 
 #### First Normal Form (1NF)
 **Rule**: No repeating groups or arrays in a row — each column must hold atomic values (indivisible).
@@ -278,13 +319,6 @@ ACID is a set of properties that guarantee reliable processing of database trans
 - **Durability:**  
   Once a transaction commits, changes are permanent, even if the system crashes.
 
-### How Does Indexing Work Under the Hood? <a name="indexing"></a>
-
-- An **index** is a data structure (usually a B-tree or sometimes a hash) that the database uses to quickly locate rows without scanning the entire table.
-- It stores keys (indexed column values) along with pointers to the corresponding data rows.
-- When you run a query with a `WHERE` clause on an indexed column, the database uses the index to jump directly to matching rows, drastically reducing search time.
-- Indexes speed up read operations but can slow down write operations (`INSERT`, `UPDATE`, `DELETE`) because the index also needs updating.
-
 ### How Do You Handle Performance Optimization in SQL?<a name="performance-optimization"></a>
 
 - **Use Indexes Wisely**
@@ -388,11 +422,6 @@ Row-Level Security (RLS) restricts access to rows based on user context or role 
 - Avoid joining large datasets unnecessarily.
 - Analyze execution plans to identify bottlenecks.
 
-###  What Are the Trade-offs Between Normalized and Denormalized Database Schemas? <a name="normalization-tradeoffs"></a>
-
-- **Normalized:** Reduces redundancy, easier to maintain, but may require complex joins.
-- **Denormalized:** Improves read performance and simplicity but increases redundancy and update anomalies.
-
 ### What Are Common Causes of Slow Queries and How Do You Troubleshoot Them? <a name="slow-query-causes"></a>
 
 - Missing indexes.
@@ -402,13 +431,6 @@ Row-Level Security (RLS) restricts access to rows based on user context or role 
 - Network latency.
 
 Use profiling tools, logs, and execution plans to diagnose.
-
-### Explain the Difference Between Clustered and Non-Clustered Indexes. When Would You Use Each? <a name="clustered-vs-nonclustered"></a>
-
-- **Clustered Index:** The table’s data is physically sorted according to this index (one per table). Efficient for range queries.
-- **Non-clustered Index:** Separate structure pointing to data rows. Multiple non-clustered indexes can exist per table. Good for quick lookups on columns.
-
-Use clustered for primary keys or frequently range-queried columns, non-clustered for others.
 
 ### What Is the Difference Between a Database View and a Materialized View?<a name="view-vs-materialized-view"></a>
 
@@ -420,10 +442,6 @@ Use clustered for primary keys or frequently range-queried columns, non-clustere
 - Comparisons with NULL always return UNKNOWN, so use `IS NULL` instead of `= NULL`.
 - Aggregate functions ignore NULLs.
 - NULLs can cause unexpected results in joins or conditions.
-
-### Explain the Concept of a Covering Index. <a name="covering-index"></a>
-
-An index that contains all the columns a query needs, so the database can fulfill the query using only the index without accessing the table data.
 
 ### How Would You Optimize a Query That Has Multiple OR Conditions? <a name="or-condition-optimization"></a>
 
@@ -456,11 +474,6 @@ Transactions group SQL statements into a single unit of work. Commands:
 - BEGIN or START TRANSACTION to start.
 - COMMIT to save changes.
 - ROLLBACK to undo changes.
-
-### What is the difference between a primary key and a unique key? <a name="primary-vs-unique-key"></a>
-
-- Primary key: Uniquely identifies each row; cannot be NULL; one per table.
-- Unique key: Ensures uniqueness of values but can allow one NULL (depending on DB).
 
 ### SQL Triggers — Overview, Types, and Examples<a name="sql-triggers"></a>
 
@@ -504,12 +517,6 @@ When to Use Triggers
 - Logic gets too complex (can hurt readability and debugging)
 - Performance matters (triggers add overhead)
 
-### Explain data type choices — when would you use INT vs BIGINT vs UUID as a primary key? <a name="primary-key-types"></a>
-
-- INT: Small tables
-- BIGINT: Large tables
-- UUID: Decentralized inserts (e.g., distributed systems)
-
 ###  What is a query execution plan? <a name="query-execution-plan"></a>
 
 It shows how SQL engine executes a query—e.g., join types, scan types, index usage. Use it to identify performance bottlenecks.
@@ -518,9 +525,4 @@ It shows how SQL engine executes a query—e.g., join types, scan types, index u
 
 - GROUP BY reduces rows.
 - PARTITION BY retains rows but groups them logically for window functions.
-
-### When to use composite primary keys? <a name="composite-primary-keys"></a>
-
-- When the combination of two or more columns uniquely identifies a row.
-- Often in many-to-many or versioning tables.
 
