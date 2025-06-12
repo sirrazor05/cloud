@@ -103,3 +103,8 @@ If attackers exploit a vulnerability in the app (e.g. SQL injection, XSS, or pri
 - Each application manages its own user accounts
 - No centralized access controls, policies, or audit trails
 - Difficult to implement single sign-on (SSO) or multi-factor authentication (MFA)
+
+Solution?
+- Move toward externalized identity management
+
+## Externalized identity management
