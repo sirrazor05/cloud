@@ -1,9 +1,7 @@
 # Real Work Assignment – Solution Architect Mobile Products & Solutions (MPS)
-
 ## The current setup
 
 ![Authentication Flow](static/current_auth.png)
-
 ### How the User is Authenticated (Step-by-Step)
 
 #### 1. Login Page (Browser):
@@ -61,6 +59,24 @@ There are typically two types of expiration mechanisms in place:
 
 📌 Why?
 - Limits long-lived sessions, which is important for reducing the attack surface if credentials or session cookies are stolen.
+
+### How session expiration is implemented
+
+Depends on how sessions are stored:
+#### a. In-Memory or Session Store (e.g., Redis, DB)
+
+- Expiry timestamps are tracked in the store.
+- A background process or the store itself (like Redis TTL) handles cleanup.
+
+####  b. Session Cookie
+
+- The cookie can have an Expires or Max-Age attribute.
+-Once the browser detects it’s expired, it no longer sends it with requests.
+
+Example:
+```html
+Set-Cookie: sessionId=abc123; Max-Age=1800; HttpOnly; Secure;
+```
 
 ### Drawbacks of the current authentication setup
 
