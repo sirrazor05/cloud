@@ -2,11 +2,6 @@
 
 ## The current setup
 
-Using the same database for :
-- Application data (e.g., customer records, admin actions, settings)
-- User authentication data (e.g., usernames, hashed passwords, roles)
-
-Using the same database for both application and identity/authentication data can introduce security and architectural concerns:
 
 
 ### How the User is Authenticated (Step-by-Step)
@@ -31,6 +26,13 @@ Session Token to Client:
 - This cookie is saved in the browser.
 
 ### Drawbacks
+
+Using the same database for :
+- Application data (e.g., customer records, admin actions, settings)
+- User authentication data (e.g., usernames, hashed passwords, roles)
+
+Using the same database for both application and identity/authentication data can introduce security and architectural concerns:
+
 
 #### 1. Increased Attack Surface
 
