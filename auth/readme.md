@@ -62,14 +62,13 @@ There are typically two types of expiration mechanisms in place:
 📌 Why?
 - Limits long-lived sessions, which is important for reducing the attack surface if credentials or session cookies are stolen.
 
-### Drawbacks
+### Drawbacks of the current authentication setup
 
-Using the same database for :
+The current authentication setup uses the same database for :
 - Application data (e.g., customer records, admin actions, settings)
 - User authentication data (e.g., usernames, hashed passwords, roles)
 
 Using the same database for both application and identity/authentication data can introduce security and architectural concerns:
-
 
 #### 1. Increased Attack Surface
 
