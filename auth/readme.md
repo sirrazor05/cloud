@@ -6,22 +6,22 @@
 
 ### How the User is Authenticated (Step-by-Step)
 
-Login Page (Browser):
+#### 1. Login Page (Browser):
 
 - The user enters their UPN (email) and password in a login form.
 
-Authentication (App Server):
+#### 2. Authentication (App Server):
 
 - The server receives the credentials and queries the database.
 - It verifies:
     - Whether the UPN exists
     - Whether the password matches (usually via hashed comparison)
 
-Session Creation:
+#### 3. Session Creation:
 - If the credentials are valid, the app creates a session (often stored in memory, a session store, or database).
 - It generates a session ID.
 
-Session Token to Client:
+#### 4. Session Token to Client:
 - The session ID is sent to the browser as a cookie (usually Set-Cookie header).
 - This cookie is saved in the browser.
 
