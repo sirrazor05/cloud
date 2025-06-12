@@ -81,8 +81,8 @@ Set-Cookie: sessionId=abc123; Max-Age=1800; HttpOnly; Secure;
 ### Drawbacks of the current authentication setup
 
 The current authentication setup uses the same database for :
-- Application data (e.g., customer records, admin actions, settings)
-- User authentication data (e.g., usernames, hashed passwords, roles)
+- **Application data** (e.g., customer records, admin actions, settings)
+- **User authentication data** (e.g., usernames, hashed passwords, roles)
 
 Using the same database for both application and identity/authentication data can introduce security and architectural concerns:
 
