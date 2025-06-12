@@ -41,6 +41,27 @@ Every time the user visits another page or makes an API request:
 - Authorize access to specific pages or actions.
 - Personalize the response (e.g., show user's name, role, etc.).
 
+###  How the Session Expires
+
+There are typically two types of expiration mechanisms in place:
+
+#### 1. Inactivity Timeout (Idle Timeout)
+
+- The session expires after a period of inactivity — e.g., 15 or 30 minutes.
+- Every time the user makes a request, the session's "last activity timestamp" is updated.
+- If no requests are made for the duration of the timeout, the session is removed or marked invalid.
+
+📌 Why?
+- Protects against attacks if the user walks away from their computer or forgets to log out.
+
+#### 2. Absolute Timeout (Fixed Lifetime)
+
+- The session is set to expire after a fixed amount of time, regardless of activity — e.g., 8 hours or 24 hours.
+- Once that time passes, the user is forced to re-authenticate.
+
+📌 Why?
+- Limits long-lived sessions, which is important for reducing the attack surface if credentials or session cookies are stolen.
+
 ### Drawbacks
 
 Using the same database for :
