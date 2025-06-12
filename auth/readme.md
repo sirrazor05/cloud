@@ -2,7 +2,7 @@
 
 ## The current setup
 
-
+![Authentication Flow](static/current_auth.png)
 
 ### How the User is Authenticated (Step-by-Step)
 
