@@ -25,6 +25,22 @@
 - The session ID is sent to the browser as a cookie (usually Set-Cookie header).
 - This cookie is saved in the browser.
 
+
+### How the App Knows the User on Other Pages
+
+Every time the user visits another page or makes an API request:
+
+#### 1. The browser automatically sends the session cookie with the request.
+
+#### 2. The app server:
+- Reads the session ID from the cookie.
+- Looks it up in the session store or in-memory map.
+- Retrieves the associated user identity and role.
+
+#### 3. The app uses that to:
+- Authorize access to specific pages or actions.
+- Personalize the response (e.g., show user's name, role, etc.).
+
 ### Drawbacks
 
 Using the same database for :
