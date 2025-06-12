@@ -1,8 +1,6 @@
 # Real Work Assignment – Solution Architect Mobile Products & Solutions (MPS)
-## The current setup
 
-![Authentication Flow](static/current_auth.png)
-### How the User is Authenticated (Step-by-Step)
+## How the User is Authenticated (Step-by-Step)
 
 #### 1. Login Page (Browser):
 
@@ -77,6 +75,10 @@ Example:
 ```html
 Set-Cookie: sessionId=abc123; Max-Age=1800; HttpOnly; Secure;
 ```
+
+## The current setup
+
+![Authentication Flow](static/current_auth.png)
 
 ### Drawbacks of the current authentication setup
 
