@@ -56,13 +56,13 @@ Perfekt nu se pune „ge-” daca
 ### haben / hatte / gehabt – a avea
 
 | Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
-| --------- | ----------------- | -------------------------- | ----------------------------------- |
-| ich       | hab**e**          | hatt**e**                  | habe gehabt                         |
-| du        | hab**st**         | hatt**est**                | hast gehabt                         |
-| er/sie/es | hat               | hatt**e**                  | hat gehabt                          |
-| wir       | hab**en**         | hatt**en**                 | haben gehabt                        |
-| ihr       | hab**t**          | hatt**et**                 | habt gehabt                         |
-| sie/Sie   | hab**en**         | hatt**en**                 | haben gehabt                        |
+| --------- |-------------------|----------------------------|-------------------------------------|
+| ich       | habe              | hatte                      | habe gehabt                         |
+| du        | habst             | hattest                    | hast gehabt                         |
+| er/sie/es | hat               | hatte                      | hat gehabt                          |
+| wir       | haben             | hatten                     | haben gehabt                        |
+| ihr       | habt              | hattet                     | habt gehabt                         |
+| sie/Sie   | haben             | hatten                     | haben gehabt                        |
 
 ### sein / war / gewesen – a fi
 
