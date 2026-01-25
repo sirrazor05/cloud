@@ -24,8 +24,18 @@
 | ihr       | sag**t**          | sag**tet**                 | habt gesagt                         |
 | sie/Sie   | sagen**en**       | sag**ten**                 | haben gesagt                        |
 
-
 ## Verbe neregulate
+
+### sein / war / gewesen – a fi
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + sein) |
+| --------- | ----------------- | -------------------------- | ---------------------------------- |
+| ich       | bin               | war                        | bin gewesen                        |
+| du        | bist              | warst                      | bist gewesen                       |
+| er/sie/es | ist               | war                        | ist gewesen                        |
+| wir       | sind              | waren                      | sind gewesen                       |
+| ihr       | seid              | wart                       | seid gewesen                       |
+| sie/Sie   | sind              | waren                      | sind gewesen                       |
 
 ### kommen / kam / gekommen – a veni
 
