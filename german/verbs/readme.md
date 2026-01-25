@@ -53,6 +53,17 @@ Perfekt nu se pune „ge-” daca
 
 ## Verbe neregulate
 
+### haben / hatte / gehabt – a avea
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | hab**e**          | hatt**e**                  | habe gehabt                         |
+| du        | hab**st**         | hatt**est**                | hast gehabt                         |
+| er/sie/es | hat               | hatt**e**                  | hat gehabt                          |
+| wir       | hab**en**         | hatt**en**                 | haben gehabt                        |
+| ihr       | hab**t**          | hatt**et**                 | habt gehabt                         |
+| sie/Sie   | hab**en**         | hatt**en**                 | haben gehabt                        |
+
 ### sein / war / gewesen – a fi
 
 | Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + sein) |
