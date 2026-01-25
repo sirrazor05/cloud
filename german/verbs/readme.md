@@ -1,5 +1,9 @@
 # German verbes
 
+Perfekt nu se pune „ge-” daca 
+- verbul are prefix inseparabil (be-, emp-, ent-, er-, ver-, zer-)
+- Verbele care se termină în -ieren
+
 ## Verbe Regulate
 
 ### besuchen / besuchte / besucht – a frecventa
@@ -34,6 +38,17 @@
 | wir       | wohn**en**        | wohn**ten**                | haben gewohnt                       |
 | ihr       | wohn**t**         | wohn**tet**                | habt gewohnt                        |
 | sie/Sie   | wohn**en**        | wohn**ten**                | haben gewohnt                       |
+
+###  studieren / studierte / studiert – a studia
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | studier**e**      | studier**te**              | habe studiert                       |
+| du        | studier**st**     | studier**test**            | hast studiert                       |
+| er/sie/es | studier**t**      | studier**te**              | hat studiert                        |
+| wir       | studier**en**     | studier**ten**             | haben studiert                      |
+| ihr       | studier**t**      | studier**tet**             | habt studiert                       |
+| sie/Sie   | studier**en**     | studier**ten**             | haben studiert                      |
 
 
 ## Verbe neregulate
