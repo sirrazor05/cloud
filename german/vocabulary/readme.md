@@ -7,3 +7,4 @@
 | danach          | după aceea / apoi                       |
 | das Gymnasium   | gimnaziul (in Romania gimnaziu + liceu) |
 | viel            | mult                                    |
+| Geschichte      | istorie (materie)                       |
