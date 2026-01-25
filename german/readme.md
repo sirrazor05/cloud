@@ -48,3 +48,13 @@
 | ihr       | kommt             | kamt                       | seid gekommen                      |
 | sie/Sie   | kommen            | kamen                      | sind gekommen                      |
 
+### sehen / sah / gesehen – a vedea
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | sehe              | sah                        | habe gesehen                        |
+| du        | siehst            | sahst                      | hast gesehen                        |
+| er/sie/es | sieht             | sah                        | hat gesehen                         |
+| wir       | sehen             | sahen                      | haben gesehen                       |
+| ihr       | seht              | saht                       | habt gesehen                        |
+| sie/Sie   | sehen             | sahen                      | haben gesehen                       |
