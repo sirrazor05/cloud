@@ -13,6 +13,17 @@
 | ihr       | besuch**t**       | besuch**tet**              | habt besucht                        |
 | sie/Sie   | besuch**en**      | besuch**ten**              | haben besucht                       |
 
+### sagen / sagte / gesagt – a spune
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | sag**e**          | sag**te**                  | habe gesagt                         |
+| du        | sag**st**         | sag**test**                | hast gesagt                         |
+| er/sie/es | sag**t**          | sag**te**                  | hat gesagt                          |
+| wir       | sagen**en**       | sag**ten**                 | haben gesagt                        |
+| ihr       | sag**t**          | sag**tet**                 | habt gesagt                         |
+| sie/Sie   | sagen**en**       | sag**ten**                 | haben gesagt                        |
+
 
 ## Verbe neregulate
 
@@ -26,3 +37,4 @@
 | wir       | kommen            | kamen                      | sind gekommen                      |
 | ihr       | kommt             | kamt                       | seid gekommen                      |
 | sie/Sie   | kommen            | kamen                      | sind gekommen                      |
+
