@@ -10,3 +10,5 @@
 | Geschichte      | istorie (materie)                       |
 | das Hauptfach   | materie principala                      |
 | als             | ca                                      |
+| auch            | și / de asemenea                        |
+
