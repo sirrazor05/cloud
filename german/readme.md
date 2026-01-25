@@ -24,6 +24,18 @@
 | ihr       | sag**t**          | sag**tet**                 | habt gesagt                         |
 | sie/Sie   | sagen**en**       | sag**ten**                 | haben gesagt                        |
 
+### wohnen / wohnte / gewohnt – a locui
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | wohn**e**         | wohn**te**                 | habe gewohnt                        |
+| du        | wohn**st**        | wohn**test**               | hast gewohnt                        |
+| er/sie/es | wohn**t**         | wohn**te**                 | hat gewohnt                         |
+| wir       | wohn**en**        | wohn**ten**                | haben gewohnt                       |
+| ihr       | wohn**t**         | wohn**tet**                | habt gewohnt                        |
+| sie/Sie   | wohn**en**        | wohn**ten**                | haben gewohnt                       |
+
+
 ## Verbe neregulate
 
 ### sein / war / gewesen – a fi
