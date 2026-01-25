@@ -8,3 +8,5 @@
 | das Gymnasium   | gimnaziul (in Romania gimnaziu + liceu) |
 | viel            | mult                                    |
 | Geschichte      | istorie (materie)                       |
+| das Hauptfach   | materie principala                      |
+
