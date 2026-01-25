@@ -9,4 +9,4 @@
 | viel            | mult                                    |
 | Geschichte      | istorie (materie)                       |
 | das Hauptfach   | materie principala                      |
-
+| als             | ca                                      |
