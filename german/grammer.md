@@ -11,13 +11,11 @@ Ele pot:
 
 ### dieser / diese / dieses / diese
 
-= acesta / aceasta / aceștia / acestea
+| Masculin   | Feminin   | Neutru          | Plural            |
+| ---------- | --------- | --------------- | ----------------- |
+| **dieser** | **diese** | **dieses**      | **diese**         |
+| acesta     | aceasta   | acesta (neutru) | aceștia / acestea |
 
-Forme:
-- masculin: **dieser**
-- feminin: **diese**
-- neutru: **dieses** 
-- plural: **diese**
 
 Exemple:
 - **Dieser Mann** = acest bărbat 
