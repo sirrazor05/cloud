@@ -16,3 +16,4 @@
 | später          | mai târziu                              |
 | das Abitur      | Bacalaureat                             |
 | die Prüfung     | examen / test                           |
+| dann            | apoi / atunci                           |
