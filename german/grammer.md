@@ -16,7 +16,6 @@ Ele pot:
 | **dieser** | **diese** | **dieses**      | **diese**         |
 | acesta     | aceasta   | acesta (neutru) | aceștia / acestea |
 
-
 Exemple:
 - **Dieser Mann** = acest bărbat 
 - **Diese Frau** = această femeie 
