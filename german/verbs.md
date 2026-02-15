@@ -107,3 +107,14 @@ Perfekt nu se pune „ge-” daca
 | wir       | sehen             | sahen                      | haben gesehen                       |
 | ihr       | seht              | saht                       | habt gesehen                        |
 | sie/Sie   | sehen             | sahen                      | haben gesehen                       |
+
+### wollen / wollte / gewollt – a vrea / a dori
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | will              | wollte                     | habe gewollt                        |
+| du        | willst            | wolltest                   | hast gewollt                        |
+| er/sie/es | will              | wollte                     | hat gewollt                         |
+| wir       | wollen            | wollten                    | haben gewollt                       |
+| ihr       | wollt             | wolltet                    | habt gewollt                        |
+| sie/Sie   | wollen            | wollten                    | haben gewollt                       |
