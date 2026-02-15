@@ -39,7 +39,7 @@ Perfekt nu se pune „ge-” daca
 | ihr       | wohn**t**         | wohn**tet**                | habt gewohnt                        |
 | sie/Sie   | wohn**en**        | wohn**ten**                | haben gewohnt                       |
 
-###  studieren / studierte / studiert – a studia
+### studieren / studierte / studiert – a studia
 
 | Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
 | --------- | ----------------- | -------------------------- | ----------------------------------- |
@@ -49,6 +49,17 @@ Perfekt nu se pune „ge-” daca
 | wir       | studier**en**     | studier**ten**             | haben studiert                      |
 | ihr       | studier**t**      | studier**tet**             | habt studiert                       |
 | sie/Sie   | studier**en**     | studier**ten**             | haben studiert                      |
+
+### machen / machte / gemacht – a face
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + haben) |
+| --------- | ----------------- | -------------------------- | ----------------------------------- |
+| ich       | mach**e**         | mach**te**                 | habe gemacht                        |
+| du        | mach**st**        | mach**test**               | hast gemacht                        |
+| er/sie/es | mach**t**         | mach**te**                 | hat gemacht                         |
+| wir       | mach**en**        | mach**ten**                | haben gemacht                       |
+| ihr       | mach**t**         | mach**tet**                | habt gemacht                        |
+| sie/Sie   | mach**en**        | mach**ten**                | haben gemacht                       |
 
 
 ## Verbe neregulate
