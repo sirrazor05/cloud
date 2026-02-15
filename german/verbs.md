@@ -118,3 +118,14 @@ Perfekt nu se pune „ge-” daca
 | wir       | wollen            | wollten                    | haben gewollt                       |
 | ihr       | wollt             | wolltet                    | habt gewollt                        |
 | sie/Sie   | wollen            | wollten                    | haben gewollt                       |
+
+### werden / wurde / geworden – a deveni
+
+| Persoană  | Präsens (Prezent) | Präteritum (Trecut simplu) | Perfekt (Participiu trecut + sein) |
+| --------- | ----------------- | -------------------------- | ---------------------------------- |
+| ich       | werde             | wurde                      | bin geworden                       |
+| du        | wirst             | wurdest                    | bist geworden                      |
+| er/sie/es | wird              | wurde                      | ist geworden                       |
+| wir       | werden            | wurden                     | sind geworden                      |
+| ihr       | werdet            | wurdet                     | seid geworden                      |
+| sie/Sie   | werden            | wurden                     | sind geworden                      |

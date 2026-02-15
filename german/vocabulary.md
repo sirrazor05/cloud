@@ -19,3 +19,5 @@
 | dann             | apoi / atunci                                    |
 | für              | pentru                                           |
 | nächste          | următorul / următoarea / următorii / următoarele |
+| die Lehrerin     | profesoara                                       |
+
