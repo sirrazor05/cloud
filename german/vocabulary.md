@@ -14,3 +14,5 @@
 | auch            | și / de asemenea                        |
 | auf             | pe / la (prepoziție)                    |
 | später          | mai târziu                              |
+| das Abitur      | Bacalaureat                             |
+| die Prüfung     | examen / test                           |
