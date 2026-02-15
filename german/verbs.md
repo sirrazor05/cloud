@@ -5,7 +5,11 @@ Perfekt nu se pune „ge-” daca
 - Verbele care se termină în -ieren
 
 ## Verbele modale
+
+Caracteristici
 - Un verb modal în limba germană este un verb special care schimbă sensul altui verb, de obicei verbul principal din propoziție.
+- Îl folosești împreună cu infinitivul unui alt verb
+
 
 | Verb modal | Înțeles principal         | Exemplu                                                           |
 | ---------- | ------------------------- | ----------------------------------------------------------------- |
