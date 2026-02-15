@@ -4,6 +4,19 @@ Perfekt nu se pune „ge-” daca
 - verbul are prefix inseparabil (be-, emp-, ent-, er-, ver-, zer-)
 - Verbele care se termină în -ieren
 
+## Verbele modale
+- Un verb modal în limba germană este un verb special care schimbă sensul altui verb, de obicei verbul principal din propoziție.
+
+| Verb modal | Înțeles principal         | Exemplu                                                           |
+| ---------- | ------------------------- | ----------------------------------------------------------------- |
+| **können** | a putea / a ști să        | Ich kann Deutsch sprechen. → Pot să vorbesc germană.              |
+| **müssen** | a trebui                  | Ich muss lernen. → Trebuie să învăț.                              |
+| **wollen** | a vrea / a dori           | Sie wollte Lehrerin werden. → Ea dorea să devină profesoară.      |
+| **dürfen** | a avea voie               | Du darfst gehen. → Ai voie să pleci.                              |
+| **sollen** | a trebui (cerință morală) | Du sollst deine Hausaufgaben machen. → Trebuie să-ți faci temele. |
+| **mögen**  | a plăcea / a dori         | Ich mag Schokolade essen. → Îmi place să mănânc ciocolată.        |
+
+
 ## Verbe Regulate
 
 ### besuchen / besuchte / besucht – a frecventa
