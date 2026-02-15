@@ -1,20 +1,21 @@
 # Vocabulary
 
-| Germana          | Romana                                  | 
-|------------------|-----------------------------------------|
-| die Grundschule  | Scoala primara                          |
-| Zuerst           | mai intai                               |
-| danach           | după aceea / apoi                       |
-| das Gymnasium    | gimnaziul (in Romania gimnaziu + liceu) |
-| viel             | mult                                    |
-| Geschichte       | istorie (materie)                       |
-| das Hauptfach    | materie principala                      |
-| das Nebenfach    | materie secundara                       |
-| als              | ca                                      |
-| auch             | și / de asemenea                        |
-| auf              | pe / la (prepoziție)                    |
-| später           | mai târziu                              |
-| das Abitur       | Bacalaureat                             |
-| die Prüfung      | examen / test                           |
-| dann             | apoi / atunci                           |
-| für              | pentru                                  |
+| Germana          | Romana                                           | 
+|------------------|--------------------------------------------------|
+| die Grundschule  | Scoala primara                                   |
+| Zuerst           | mai intai                                        |
+| danach           | după aceea / apoi                                |
+| das Gymnasium    | gimnaziul (in Romania gimnaziu + liceu)          |
+| viel             | mult                                             |
+| Geschichte       | istorie (materie)                                |
+| das Hauptfach    | materie principala                               |
+| das Nebenfach    | materie secundara                                |
+| als              | ca                                               |
+| auch             | și / de asemenea                                 |
+| auf              | pe / la (prepoziție)                             |
+| später           | mai târziu                                       |
+| das Abitur       | Bacalaureat                                      |
+| die Prüfung      | examen / test                                    |
+| dann             | apoi / atunci                                    |
+| für              | pentru                                           |
+| nächste          | următorul / următoarea / următorii / următoarele |
